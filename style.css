@@ -1,0 +1,107 @@
+html {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+}
+div {
+	text-align: center;
+	display: none;
+}
+td {
+    text-align: center;
+    background-color: black;
+    border: 0.1em solid white;
+    border-radius: 100%;
+}
+table {
+	height: 20em;
+	width: 20em;
+	display: none;
+	position: static;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+body {
+	background-color: black;
+	font-family: "Fira Sans", sans-serif;
+	margin: 0;
+}
+.score-current, .score-best {
+	height: 2em;
+	width: 2em;
+	font-size: 3em;
+	border-radius: 100%;
+	background-color: white;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+.score-best {
+	background-color: black;
+	color: white;
+}
+.score {
+	text-align: center;
+	width: 12em;
+	margin: auto;
+}
+.share {
+	width: 100%;
+	height: 1.65em;
+	bottom: 0;
+	position: fixed;
+	background-color: white;
+	font-size: 2em;
+}
+.share-button {
+	vertical-align: middle;
+	text-decoration: none;
+	color: white;
+	padding: 2px 10px;
+	height: 300%;
+}
+.replay {
+	height: 16em;
+	width: 16em;
+	cursor: hand;
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	display: none;
+}
+.reddit {
+	background-color: #BBB;
+}
+.reddit:hover {
+	background-color: #AAA;
+}
+.twitter {
+	background-color: #03BADB;
+}
+.twitter:hover {
+	background-color: #03A0C2;
+}
+.facebook {
+	background-color: #3B5399;
+}
+.facebook:hover {
+	background-color: #2D3F74;
+}
+.google {
+	background-color: #E62622;
+}
+.google:hover {
+	background-color: #C3080A;
+}
+.bugtracker {
+	background-color: #00B46D;
+}
+.bugtracker:hover {
+	background-color: #00A45D;
+}
