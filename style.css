@@ -1,8 +1,8 @@
 @font-face {
-  font-family: "Open Sans";
+  font-family: "Poiret One";
   font-style: normal;
-  font-weight: 300;
-  src: local("Open Sans Light"), local("OpenSans-Light"), url("open-sans-light.woff") format("woff");
+  font-weight: 400;
+  src: local("Poiret One"), local("PoiretOne-Regular"), url("PoiretOne.woff") format('woff');
 }
 html {
 	-ms-touch-action: manipulation;
@@ -31,7 +31,7 @@ table {
 }
 body {
 	background-color: black;
-	font-family: "Open Sans", sans-serif;
+	font-family: "Poiret One", sans-serif;
 	margin: 0;
 }
 .score-current, .score-best {
