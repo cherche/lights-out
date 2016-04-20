@@ -41,14 +41,17 @@ td {
     text-decoration: none;
     transition: color 0.3s;
     color: inherit;
-    width: 5rem
+    width: 5rem;
 }
-.share .fa-facebook:hover {
-    color: #3b5998
+.share .fa-facebook-square:hover {
+    color: #3b5998;
 }
 .share .fa-twitter:hover {
-    color: #55acee
+    color: #55acee;
 }
 .share .fa-reddit-alien:hover {
-    color: #ff5700
+    color: #ff5700;
+}
+.share .fa-github:hover {
+    color: #6e5494;
 }
