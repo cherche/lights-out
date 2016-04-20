@@ -2,39 +2,38 @@
 <html>
 	<head>
 		<title>Lights Out by Ryan Nguyen</title>
-		<link rel="stylesheet" type="text/css" href="style.css" />
-		<script src="jquery.js"></script>
-		<script src="js.cookie.js"></script>
-		<script src="fastclick.js"></script>
-		<script src="script.js"></script>
-		<link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-touch-icon-57x57.png">
-		<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-touch-icon-60x60.png">
-		<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-touch-icon-72x72.png">
-		<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-touch-icon-76x76.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-touch-icon-114x114.png">
-		<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-touch-icon-120x120.png">
-		<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-touch-icon-144x144.png">
-		<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-touch-icon-152x152.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-touch-icon-180x180.png">
-		<link rel="icon" type="image/png" href="favicons/favicon-32x32.png" sizes="32x32">
-		<link rel="icon" type="image/png" href="favicons/favicon-194x194.png" sizes="194x194">
-		<link rel="icon" type="image/png" href="favicons/favicon-96x96.png" sizes="96x96">
-		<link rel="icon" type="image/png" href="favicons/android-chrome-192x192.png" sizes="192x192">
-		<link rel="icon" type="image/png" href="favicons/favicon-16x16.png" sizes="16x16">
-		<link rel="manifest" href="favicons/manifest.json">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css" />
+		<script src="assets/scripts/jquery.js"></script>
+		<script src="assets/scripts/js.cookie.js"></script>
+		<script src="assets/scripts/fastclick.js"></script>
+		<script src="assets/scripts/main.js"></script>
+		<link rel="apple-touch-icon" sizes="57x57" href="assets/favicons/apple-touch-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="assets/favicons/apple-touch-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="assets/favicons/apple-touch-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="assets/favicons/apple-touch-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="assets/favicons/apple-touch-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="assets/favicons/apple-touch-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="assets/favicons/apple-touch-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="assets/favicons/apple-touch-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon-180x180.png">
+		<link rel="icon" type="image/png" href="assets/favicons/favicon-32x32.png" sizes="32x32">
+		<link rel="icon" type="image/png" href="assets/favicons/favicon-194x194.png" sizes="194x194">
+		<link rel="icon" type="image/png" href="assets/favicons/favicon-96x96.png" sizes="96x96">
+		<link rel="icon" type="image/png" href="assets/favicons/android-chrome-192x192.png" sizes="192x192">
+		<link rel="icon" type="image/png" href="assets/favicons/favicon-16x16.png" sizes="16x16">
+		<link rel="manifest" href="assets/favicons/manifest.json">
 		<meta name="msapplication-TileColor" content="#da532c">
-		<meta name="msapplication-TileImage" content="favicons/mstile-144x144.png">
+		<meta name="msapplication-TileImage" content="assets/favicons/mstile-144x144.png">
 		<meta name="theme-color" content="#ffffff">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width">
 	</head>
 	<body>
-		<br>
 		<div class="score">
-			<span class="score-current">0</span>
-			<span class="score-best"><small></small></span>
+			<div class="best">1</div>
+			<div class="current">1</div>
 		</div>
-		<img src="replay.svg" class="replay" alt="replay" />
 		<table>
 			<tr>
 				<td class="1"></td>
@@ -53,10 +52,9 @@
 			</tr>
 		</table>
 		<div class="share">
-			<a class="share-button reddit" href="https://www.reddit.com/submit?title=Lights Out&amp;url=https://bit.ly/lightsoutgame" target="_blank" title="Share on Reddit">Reddit</a>
-			<a class="share-button twitter" href="https://twitter.com/intent/tweet?text=Try%20Lights%20Out!&amp;url=https://bit.ly/lightsoutgame" target="_blank" title="Share on Twitter">Twitter</a>
-			<a class="share-button facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://bit.ly/lightsoutgame" target="_blank" title="Share on Facebook">Facebook</a>
-			<a class="share-button google" href="https://plus.google.com/share?url=https://bit.ly/lightsoutgame" target="_blank" title="Share on Google+">Google+</a>
+			<a href="#" class="fa fa-facebook" aria-hidden="true"></a>
+			<a href="#" class="fa fa-twitter" aria-hidden="true"></a>
+			<a href="#" class="fa fa-reddit-alien" aria-hidden="true"></a>
 		</div>
 	</body>
 </html>
