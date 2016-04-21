@@ -112,6 +112,7 @@ $(function () {
 		if (areAllOff()) {
 			clearInterval(scoreControl);
 			best = (score < best) ? score : best;
+			Cookies.set('best', best);
 			$best.html(best);
 
 			$td.off('click');
@@ -126,6 +127,7 @@ $(function () {
 	}
 	function repeatClick() {
 		$current.html(score = 0);
+		clearInterval(scoreControl);
 		window.scoreControl = setInterval(scoring, 1000);
 
 		$repeat.off('click');

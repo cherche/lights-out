@@ -45,6 +45,10 @@ td {
 .score {
 	top: 1.5rem;
 }
+.score div {
+	min-width: 5rem;
+	height: 5rem;
+}
 .score .meta {
 	display: block;
 	font-size: 1rem;
