@@ -126,7 +126,9 @@ $(function () {
 		}
 	}
 	function repeatClick() {
+		// Don't forget that this is a temporary fix.
 		location.reload();
+
 		$current.html(score = 0);
 		clearInterval(scoreControl);
 		window.scoreControl = setInterval(scoring, 1000);
