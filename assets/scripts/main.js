@@ -111,9 +111,14 @@ $(function () {
 		}
 		if (areAllOff()) {
 			clearInterval(scoreControl);
-			best = (score < best) ? score : best;
-			Cookies.set('best', best);
-			$best.html(best);
+			if (score < best) {
+				best = score;
+				Cookies.set('best', best);
+				$best.fadeOut(125, function () {
+					$best.html(best);
+					$best.fadeIn(125);
+				})
+			}
 
 			$td.off('click');
 			$table.fadeOut(500);
@@ -129,7 +134,10 @@ $(function () {
 		// Don't forget that this is a temporary fix.
 		location.reload();
 
-		$current.html(score = 0);
+		$current.fadeOut(125, function () {
+			$current.html(score = 0);
+			$current.fadeIn(125);
+		});
 		clearInterval(scoreControl);
 		window.scoreControl = setInterval(scoring, 1000);
 
