@@ -1,3 +1,145 @@
+$(function () {
+	// Attach FastClick
+	FastClick.attach(document.body);
+
+	// Caching jQuery objects
+	var $body = $('body'),
+		$current = $('.current'),
+		$best = $('.best'),
+		$table = $('table'),
+		$td = $('td'),
+		$repeat = $('.fa-repeat');
+
+	// Scoring system
+	var score = 0,
+		best = Number.MAX_VALUE,
+		scoring = function () {
+			score++;
+			$current.html(score);
+		};
+		window.scoreControl = setInterval(scoring, 1000);
+	if (Cookies.get('best')) {
+		best = parseInt(Cookies.get('best'), 10);
+		$best.html(best);
+	}
+
+	// Initialize game
+	set();
+	$body.fadeIn(500);
+	$td.on('click', tdClick);
+	$repeat.on('click', repeatClick);
+
+	// Functions
+	function flip(cell) {
+		var $cell = $('.' + cell);
+		$cell.css('background-color', ($cell.css('background-color') === 'rgb(255, 255, 255)') ? 'black'  : 'white');
+		return flip;
+	}
+	function set() {
+		for (var i = 1;i <= 9;i++) {
+			if (Math.random() < 0.5) {
+				flip(i);
+			}
+		}
+		if (areAllOff()) {
+			set();
+		}
+	}
+	function areAllOff() {
+		var allOff = true;
+		for (var i = 1;i <= 9;i++) {
+			if ($('.' + i).css('background-color') === 'rgb(255, 255, 255)') {
+				allOff = false;
+				i = 10;
+			}
+		}
+		return allOff;
+	}
+	function tdClick() {
+		switch (parseInt($(this).attr('class'), 10)) {
+			case 1:
+				flip(1)
+					(2)
+					(4);
+				break;
+			case 2:
+				flip(1)
+					(2)
+					(3)
+					(5);
+				break;
+			case 3:
+				flip(2)
+					(3)
+					(6);
+				break;
+			case 4:
+				flip(1)
+					(4)
+					(5)
+					(7);
+				break;
+			case 5:
+				flip(2)
+					(4)
+					(5)
+					(6)
+					(8);
+				break;
+			case 6:
+				flip(3)
+					(5)
+					(6)
+					(9);
+				break;
+			case 7:
+				flip(4)
+					(7)
+					(8);
+				break;
+			case 8:
+				flip(5)
+					(7)
+					(8)
+					(9);
+				break;
+			case 9:
+				flip(6)
+					(8)
+					(9);
+				break;
+		}
+		if (areAllOff()) {
+			clearInterval(scoreControl);
+			best = (score < best) ? score : best;
+			$best.html(best);
+
+			$td.off('click');
+			$table.fadeOut(500);
+
+			setTimeout(function () {
+				$repeat.fadeIn(500, function () {
+					$repeat.on('click', repeatClick);
+				});
+			}, 500);
+		}
+	}
+	function repeatClick() {
+		$current.html(score = 0);
+		window.scoreControl = setInterval(scoring, 1000);
+
+		$repeat.off('click');
+		$repeat.fadeOut(500);
+		set();
+
+		setTimeout(function () {
+			$table.fadeIn(500, function () {
+				$td.on('click', tdClick);
+			});
+		}, 500);
+	}
+});
+/*
 var score = 0;
 var score_best = Number.MAX_VALUE;
 $(function() {
@@ -215,4 +357,4 @@ function flip(light) {
 			}
 		}, 10);
 	}
-}
+}*/

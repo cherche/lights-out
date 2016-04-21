@@ -3,6 +3,7 @@
 	<head>
 		<title>Lights Out by Ryan Nguyen</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
 		<link rel="stylesheet" type="text/css" href="assets/stylesheets/style.css" />
 		<script src="assets/scripts/jquery.js"></script>
 		<script src="assets/scripts/js.cookie.js"></script>
@@ -31,8 +32,14 @@
 	</head>
 	<body>
 		<div class="score">
-			<div class="best">1</div>
-			<div class="current">1</div>
+			<div class="container">
+				<span class="meta">Current</span>
+				<span class="current">0</span>
+			</div>
+			<div class="container">
+				<span class="meta">Best</span>
+				<span class="best">?</span>
+			</div>
 		</div>
 		<table>
 			<tr>
@@ -51,6 +58,7 @@
 				<td class="9"></td>
 			</tr>
 		</table>
+		<i class="fa fa-repeat" aria-hidden="true"></i>
 		<div class="share">
 			<a href="#" class="fa fa-facebook-square" aria-hidden="true"></a>
 			<a href="#" class="fa fa-twitter" aria-hidden="true"></a>
