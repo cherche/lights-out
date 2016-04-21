@@ -1,0 +1,89 @@
+html {
+	-ms-touch-action: manipulation;
+	touch-action: manipulation;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	cursor: default;
+}
+body {
+    background-color: black;
+    color: white;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 3.5rem;
+	margin: 0;
+	/*
+	display: none;
+	*/
+}
+.fa-repeat {
+	font-size: 10rem;
+	display: none;
+}
+table, .fa-repeat {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	-o-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+table {
+    width: 20rem;
+    height: 20rem;
+	border-spacing: 0.5rem;
+}
+td {
+    border: 1px solid white;
+    background-color: black;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+.score {
+	top: 1.5rem;
+}
+.score div {
+	min-width: 5rem;
+	height: 5rem;
+}
+.score .meta {
+	display: block;
+	font-size: 1rem;
+}
+.share, .score {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    justify-content: space-around;
+	width: 45rem;
+	left: 50%;
+	margin-left: -22.5rem;
+}
+.share {
+	bottom: 1rem;
+}
+.share a {
+    font-size: 5rem;
+    text-decoration: none;
+    transition: color 0.3s;
+    color: inherit;
+    width: 5rem;
+}
+.share .fa-facebook-square:hover {
+    color: #3b5998;
+}
+.share .fa-twitter:hover {
+    color: #55acee;
+}
+.share .fa-reddit-alien:hover {
+    color: #ff5700;
+}
+.share .fa-github:hover {
+    color: #6e5494;
+}
