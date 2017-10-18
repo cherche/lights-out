@@ -1,0 +1,15 @@
+table {
+  height: 90px;
+  width: 90px;
+  background-color: #eee;
+  transform: scale(3, 3);
+  margin: 10rem auto;
+}
+
+.true {
+  background-color: blue;
+}
+
+.false {
+  background-color: red;
+}

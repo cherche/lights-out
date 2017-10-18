@@ -4,4 +4,4 @@ Welcome to Lights Out. This is a small project I made in late September. It's ex
 
 ### Instructions
 
-By clicking or tapping one of the circles, you toggle all surrounding circles - white to black and vice-versa. The point of the game is to turn off all the lights.
+By clicking or tapping one of the tiles, you toggle all surrounding tiles - white to black and vice-versa. The point of the game is to turn off all the lights.
