@@ -23,7 +23,13 @@ Game.getMap = (vals) => {
     map.push(getRandomVal(vals))
   }
 
-  return Game.map = splitInto2dArray(map, height)
+  Game.map = splitInto2dArray(map, height)
+}
+
+Game.getUnsolvedMap = (vals) => {
+  do {
+    Game.getMap(vals)
+  } while (Game.isWon())
 }
 
 // Toggle a single tile

@@ -1,26 +1,38 @@
+/* {
+  outline: 1px solid red;
+} /**/
+
 html,
 body {
   margin: 0;
   padding: 0;
-  width: 100%;
-  height: 100%;
+
+  cursor: default;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 body {
   background-color: #222;
+  color: #ddd;
+}
+
+.flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 table {
-  position: fixed;
+  max-width: 100%;
 }
 
 td,
 td .circle {
-  width: 4em;
-  height: 4em;
+  width: 4rem;
+  height: 4rem;
 }
 
 td {
@@ -28,10 +40,19 @@ td {
 }
 
 .circle {
-  border: 1em solid #ddd;
-  border-radius: 100%;
+  border: 1rem solid #ddd;
+  border-radius: 50%;
 }
 
 td.true .circle {
   background-color: #ddd;
+}
+
+.message-win {
+  font-family: 'Courgette';
+  font-size: 5em;
+  text-align: center;
+
+  opacity: 0;
+  transition: 1s all;
 }
