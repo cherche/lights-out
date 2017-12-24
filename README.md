@@ -1,6 +1,6 @@
 # Lights Out
 
-Welcome to Lights Out. This is a small project I made in late September. It's extremely simple, yet quite addicting.
+A 3x3 clone of the original game using JavaScript.
 
 ### Instructions
 

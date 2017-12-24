@@ -1,24 +1,32 @@
-import Tiles from './tiles.js';
-import {createMap} from './map.js';
+import Game from './game.js'
+import { coordsToVal } from './grid.js'
 
-const map = new Tiles(3, 3, true);
-map.randomize();
+Game.getMap([true, false])
 
-const $map = createMap(map.tiles);
+function refreshTable () {
+  tableCells.forEach((row, x) => row.forEach((cell, y) => {
+    cell.className = Game.map[x][y]
+  }))
+}
 
-$map.element.addEventListener('mousedown', (e) => {
-  e.preventDefault();
+const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
+  const $td = document.createElement('td')
 
-  const target = e.target;
+  $td.className = Game.map[x][y]
+  $td.addEventListener('click', () => {
+    Game.press([x, y])
+    refreshTable()
+  })
 
-  const [x, y] = e.target.id.split('-').map(coord => parseInt(coord));
+  return $td
+}))
 
-  const flipped = map.flipAdjacents(x, y);
+const $table = document.createElement('table')
+document.body.appendChild($table)
 
-  $map.update(map.tiles);
-});
+tableCells.forEach((row, x) => {
+  const $tr = document.createElement('tr')
+  $table.appendChild($tr)
 
-document.body.appendChild($map.element);
-
-window.$map = $map.element;
-window.map = map;
+  row.forEach(($td, y) => $tr.appendChild($td))
+})

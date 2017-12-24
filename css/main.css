@@ -1,15 +1,12 @@
 table {
-  height: 90px;
-  width: 90px;
-  background-color: #eee;
-  transform: scale(3, 3);
-  margin: 10rem auto;
+  background-color: gray;
 }
 
-.true {
-  background-color: blue;
+td {
+  width: 5em;
+  height: 5em;
 }
 
-.false {
-  background-color: red;
+td.true {
+  background-color: white;
 }
