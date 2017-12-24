@@ -1,7 +1,9 @@
 import Game from './game.js'
 import { coordsToVal } from './grid.js'
 
-Game.getMap([true, false])
+do {
+  Game.getMap([true, false])
+} while (Game.isWon())
 
 function refreshTable () {
   tableCells.forEach((row, x) => row.forEach((cell, y) => {
@@ -16,7 +18,14 @@ const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
   $td.addEventListener('click', () => {
     Game.press([x, y])
     refreshTable()
+
+    if (Game.isWon()) alert('you win!')
   })
+
+  const $div = document.createElement('div')
+  $td.appendChild($div)
+
+  $div.className = 'circle'
 
   return $td
 }))
