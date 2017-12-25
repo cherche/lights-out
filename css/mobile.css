@@ -82,11 +82,24 @@ and (max-width: 1030px) {
   }
 }
 
+/* Specifically landscape iPhone X */
+/* Goddammit, Apple. So unnaturally wide but narrow. */
+@media only screen
+and (device-width: 375px)
+and (device-height: 812px)
+and (-webkit-device-pixel-ratio: 3)
+and (orientation: landscape) {
+  /*body {
+    background-color: white;
+  }/**/
+}
+
 /* Specifically landscape iPad Pro */
 @media only screen
 and (min-device-width: 1030px)
 and (max-device-width: 1366px)
-and (-webkit-min-device-pixel-ratio: 1.5) {
+and (-webkit-min-device-pixel-ratio: 1.5)
+and (orientation: landscape) {
   /*body {
     background-color: blue;
   }/**/
