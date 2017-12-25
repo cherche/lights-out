@@ -1,7 +1,14 @@
-import Elem from './element.js'
-import { getTableCellsArray, getTable } from './controller.js'
-import { getRandomVal } from './probability.js'
-import winMessages from '../data/win-messages.js'
+import Elem from './js/element.js'
+import { getTableCellsArray, getTable } from './js/controller.js'
+import { getRandomVal } from './js/probability.js'
+
+import winMessages from './data/win-messages.js'
+
+import './css/style.css'
+import './css/win-messages.css'
+import './css/mobile.css'
+
+import './fonts/courgette.css'
 
 const $body = document.body
 

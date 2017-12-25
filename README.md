@@ -6,8 +6,9 @@ A 3x3 clone of the original game using JavaScript.
 - [X] Add win messages
 - [X] Add Fastclick.js
 - [X] Make CSS responsive (small screens are screwed, at the moment)
-- [ ] Transpile and combine everything with Babel and Webpack
+- [X] Transpile and combine everything with Babel and Webpack
 - [ ] Change CSS for landscape iPhone X to actually fit screen
+  - Why did you make the iPhone X such a skinny rectangle, Apple?!
 - [ ] Create pre-compiled `win-messages.js` to decrease load time
 - [ ] Add a ton of messages to `win-messages.js`
   - Honestly, it's probably the sole selling point of the game

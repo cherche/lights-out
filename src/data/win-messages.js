@@ -5,6 +5,7 @@ const messages = {
 
   word: [
     'Amazing',
+    'Awesome',
     'Beautiful',
     'Bingo',
     'Delightful',
@@ -17,6 +18,7 @@ const messages = {
     'Lovely',
     'Nice',
     'Spectacular',
+    'Sweet',
     'Swell',
     'Terrific',
     'Tremendous',
@@ -29,8 +31,9 @@ const messages = {
 
   phrase: [
     'I hope you appreciate these messages. They took time to make.',
+    'I love you. Sorry, too soon?',
     'Please share with your friends. I need love.',
-    'This game is the reason that I don\'t have a girlfriend ... among many.',
+    'The reason that I don\'t have a girlfriend is this game ... among others.',
     'This is the most warmth I\'ve ever felt.'
   ]
 }
