@@ -14,10 +14,11 @@ Game.options = {
   height: 3
 }
 
-Game.getMap = (vals) => {
+Game.getMap = () => {
   const { width, height } = Game.options
 
   const map = []
+  const vals = [true, false]
 
   for (let i = 0; i < width * height; i++) {
     map.push(getRandomVal(vals))
@@ -26,9 +27,9 @@ Game.getMap = (vals) => {
   Game.map = splitInto2dArray(map, height)
 }
 
-Game.getUnsolvedMap = (vals) => {
+Game.getUnsolvedMap = () => {
   do {
-    Game.getMap(vals)
+    Game.getMap()
   } while (Game.isWon())
 }
 
