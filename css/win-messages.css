@@ -1,0 +1,20 @@
+.win-message {
+  margin: 1rem;
+
+  font-family: 'Courgette';
+  text-align: center;
+
+  transition: 0.5s transform;
+}
+
+.win-message#symbol {
+  font-size: 8rem;
+}
+
+.win-message#word {
+  font-size: 5rem;
+}
+
+.win-message#phrase {
+  font-size: 3rem;
+}
