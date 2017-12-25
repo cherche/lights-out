@@ -2,13 +2,15 @@ import Elem from './js/element.js'
 import { getTableCellsArray, getTable } from './js/controller.js'
 import { getRandomVal } from './js/probability.js'
 
-import winMessages from './data/win-messages.js'
+import winMessages from './data/win-messages-processed.js'
 
+/*
 import './css/style.css'
 import './css/win-messages.css'
 import './css/mobile.css'
 
 import './fonts/courgette.css'
+*/
 
 document.addEventListener('DOMContentLoaded', () => {
   const $body = document.body
