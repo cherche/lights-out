@@ -2,7 +2,7 @@ import Elem from './js/element.js'
 import { getTableCellsArray, getTable } from './js/controller.js'
 import { getRandomVal } from './js/probability.js'
 
-import winMessages from './data/win-messages-processed.js'
+import winMessages from './data/messages.js'
 
 /*
 import './css/style.css'

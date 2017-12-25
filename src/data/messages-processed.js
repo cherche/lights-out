@@ -89,6 +89,10 @@ const winMessages = [
   },
   {
     type: 'word',
+    text: 'Woo-hoo!'
+  },
+  {
+    type: 'word',
     text: 'Wow!'
   },
   {
@@ -97,23 +101,51 @@ const winMessages = [
   },
   {
     type: 'phrase',
-    text: 'I hope you appreciate these messages. They took time to make.'
+    text: 'Also try: literally any other game. It\'s guaranteed to be better than this one.'
   },
   {
     type: 'phrase',
-    text: 'I love you. Sorry, too soon?'
+    text: 'Could you please share this with your friends? I need love.'
   },
   {
     type: 'phrase',
-    text: 'Please share with your friends. I need love.'
+    text: 'Do you hear that? It\'s the sound of your sadness after realizing that you spent hours playing this.'
   },
   {
     type: 'phrase',
-    text: 'The reason that I don\'t have a girlfriend is this game ... among others.'
+    text: 'I bet you don\'t even read these, do you?'
+  },
+  {
+    type: 'phrase',
+    text: 'I\'m sorry if these messages have hurt your feelings.'
+  },
+  {
+    type: 'phrase',
+    text: 'My sandwich? MY SANDWICH?!?!'
+  },
+  {
+    type: 'phrase',
+    text: 'Now if only I could get people to pay this much attention to me instead...'
+  },
+  {
+    type: 'phrase',
+    text: 'The music video for "The Scientist" by Coldplay is pretty good.'
+  },
+  {
+    type: 'phrase',
+    text: 'This game is the reason that I don\'t have a girlfriend.'
   },
   {
     type: 'phrase',
     text: 'This is the most warmth I\'ve ever felt.'
+  },
+  {
+    type: 'phrase',
+    text: 'Woah, you\'re a pro at button-pressing.'
+  },
+  {
+    type: 'phrase',
+    text: 'Your happiness brings me happiness. Mostly.'
   }
 ]
 

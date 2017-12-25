@@ -1,7 +1,7 @@
 .win-message {
   max-width: 80%;
 
-  font-family: 'Courgette';
+  font-family: 'Courgette', sans-serif;
   text-align: center;
 
   transition: 0.5s transform;
