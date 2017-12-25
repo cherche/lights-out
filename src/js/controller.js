@@ -2,11 +2,11 @@ import Game from './game.js'
 import Elem from './element.js'
 import FastClick from './fastclick.js'
 
-const $body = document.body
 Game.getUnsolvedMap([true, false])
 
 document.addEventListener('DOMContentLoaded', () => {
-	FastClick.attach(document.body);
+  const $body = document.body
+	FastClick.attach($body);
 }, false);
 
 const Controller = {
