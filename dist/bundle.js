@@ -547,7 +547,7 @@ Object.defineProperty(exports,"__esModule",{value:true});exports.getTableCellsAr
 // map, but all booleans are replaced with elements
 function getTableCellsArray(_ref){var onPause=_ref.onPause,onPlay=_ref.onPlay;var tableCells=_game.default.map.map(function(row,x){return row.map(function(cell,y){var $td=(0,_element.default)("td",{className:_game.default.map[x][y]});$td.addEventListener("click",function(){if(Controller.isPaused)return;_game.default.press([x,y]);refreshTable(tableCells);if(!_game.default.isWon())return;Controller.pause(onPause);// I guess this works
 // Surely, there's a better way to do it, though
-setTimeout(function(){return $body.addEventListener("click",function startGame(){_game.default.getUnsolvedMap();Controller.play(onPlay);// Temporarily prevented actions
+setTimeout(function(){return window.addEventListener("click",function startGame(){_game.default.getUnsolvedMap();Controller.play(onPlay);// Temporarily prevented actions
 // Re-allowed and reset game after clicking anywhere
 this.removeEventListener("click",startGame);refreshTable(tableCells)})},0)});var $circle=(0,_element.default)("div",{className:"circle"});$td.appendChild($circle);return $td})});return tableCells}// Haha, because it's a portmanteau of "cell"
 // and "elements". I'm funny.

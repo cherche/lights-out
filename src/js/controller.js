@@ -44,7 +44,7 @@ export function getTableCellsArray ({ onPause, onPlay }) {
       Controller.pause(onPause)
       // I guess this works
       // Surely, there's a better way to do it, though
-      setTimeout(() => $body.addEventListener('click', function startGame () {
+      setTimeout(() => window.addEventListener('click', function startGame () {
         Game.getUnsolvedMap()
         Controller.play(onPlay)
 
