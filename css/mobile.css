@@ -1,0 +1,119 @@
+/*
+These awesome media queries are from https://stackoverflow.com/a/40542824.
+*/
+
+/* smartphones, portrait iPhone, portrait 480x320 phones (Android) */
+@media only screen
+and (min-width: 320px)
+and (max-width: 480px) {
+  .win-message#symbol {
+    font-size: 6.5rem;
+  }
+
+  .win-message#word {
+    font-size: 3.5rem;
+  }
+
+  .win-message#phrase {
+    font-size: 2rem;
+  }
+
+  /*body {
+    background-color: purple;
+  }/**/
+}
+
+/* smartphones, Android phones, landscape iPhone */
+@media only screen
+and (min-width: 480px)
+and (max-width: 600px) {
+  /*body {
+    background-color: orange;
+  }/**/
+}
+
+/* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */
+@media only screen
+and (min-width: 600px)
+and (max-width: 767px) {
+  /*body {
+    background-color: green;
+  }/**/
+
+  td {
+    padding: 0.375rem;
+  }
+
+  td,
+  td .circle {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  td .circle {
+    border-width: 0.5625rem;
+  }
+}
+
+/* big landscape tablets */
+@media only screen
+and (min-width: 767px)
+and (max-width: 1030px) {
+  /*body {
+    background-color: red;
+  }/**/
+
+  td {
+    padding: 0.75rem;
+  }
+
+  td,
+  td .circle {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .win-message {
+    margin: 6rem;
+  }
+
+  td .circle {
+    border-width: 1.125rem;
+  }
+}
+
+/* Specifically landscape iPad Pro */
+@media only screen
+and (min-device-width: 1030px)
+and (max-device-width: 1366px)
+and (-webkit-min-device-pixel-ratio: 1.5) {
+  /*body {
+    background-color: blue;
+  }/**/
+
+  td {
+    padding: 1rem;
+  }
+
+  td,
+  td .circle {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  td .circle {
+    border-width: 1.5rem;
+  }
+
+  .win-message#symbol {
+    font-size: 11rem;
+  }
+
+  .win-message#word {
+    font-size: 8rem;
+  }
+
+  .win-message#phrase {
+    font-size: 5rem;
+  }
+}

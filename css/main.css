@@ -49,7 +49,7 @@ td .circle {
   border-radius: 50%;
 
   transition: 0.1s all;
-}/**/
+}
 
 td.true .circle {
   background-color: #ddd;

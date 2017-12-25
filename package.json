@@ -1,0 +1,24 @@
+{
+  "name": "lights-out",
+  "version": "1.0.0",
+  "description": "A 3x3 clone of the original game using JavaScript.",
+  "main": "js/main.js",
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cherche/lights-out.git"
+  },
+  "author": "Ryan Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cherche/lights-out/issues"
+  },
+  "homepage": "https://github.com/cherche/lights-out#readme"
+}
