@@ -7,6 +7,9 @@ Game.getUnsolvedMap([true, false])
 document.addEventListener('DOMContentLoaded', () => {
   const $body = document.body
 	FastClick.attach($body);
+
+  // Disable touch scroll on iOS Safari
+  $body.addEventListener('touchmove', e => e.preventDefault())
 }, false);
 
 const Controller = {
@@ -79,6 +82,3 @@ export function getTable(celements) {
 
   return $table
 }
-
-// Disable touch scroll on iOS Safari
-document.addEventListener('touchmove', e => e.preventDefault())
