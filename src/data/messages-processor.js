@@ -9,7 +9,7 @@ function process (messages) {
     vals.forEach((rawText) => {
       text = rawText.split('\'').join('\\\'')
 
-      winMessages += `{<br>  type: '${type}',<br>  text: '${text}'<br>},<br>`
+      winMessages += `{<br>  type: "${type}",<br>  text: "${text}"<br>},<br>`
     })
   }
 

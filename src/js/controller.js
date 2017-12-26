@@ -2,12 +2,6 @@ import Game from './game.js'
 import Elem from './element.js'
 import FastClick from './fastclick.js'
 
-function addEventListeners (el, names, fn) {
-  names.forEach((name) => {
-    el.addEventListener(name, fn)
-  })
-}
-
 Game.getUnsolvedMap([true, false])
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 	FastClick.attach($body);
 
   // Disable touch scroll on iOS Safari
-  $body.addEventListener('touchmove', e => e.preventDefault())
+  document.addEventListener('touchmove', e => e.preventDefault())
 }, false);
 
 const Controller = {
@@ -42,7 +36,7 @@ export function getTableCellsArray ({ onPause, onPlay }) {
   const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
     const $td = Elem('td', { className: Game.map[x][y] })
 
-    addEventListeners($td, ['click', 'touchstart'], () => {
+    $td.addEventListener('click', () => {
       if (Controller.isPaused) return
 
       Game.press([x, y])
@@ -53,7 +47,9 @@ export function getTableCellsArray ({ onPause, onPlay }) {
       Controller.pause(onPause)
       // I guess this works
       // Surely, there's a better way to do it, though
-      setTimeout(() => window.addEventListener('click', function startGame () {
+      setTimeout(() => window.addEventListener('click', function startGame (e) {
+        e.preventDefault()
+
         Game.getUnsolvedMap()
         Controller.play(onPlay)
 
