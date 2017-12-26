@@ -42,7 +42,7 @@ export function getTableCellsArray ({ onPause, onPlay }) {
   const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
     const $td = Elem('td', { className: Game.map[x][y] })
 
-    addEventListeners($td, ['click', 'touch'], () => {
+    addEventListeners($td, ['click', 'touchstart'], () => {
       if (Controller.isPaused) return
 
       Game.press([x, y])
