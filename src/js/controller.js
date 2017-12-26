@@ -79,3 +79,6 @@ export function getTable(celements) {
 
   return $table
 }
+
+// Disable touch scroll on iOS Safari
+document.addEventListener('touchmove', e => e.preventDefault())
