@@ -2,6 +2,12 @@ import Game from './game.js'
 import Elem from './element.js'
 import FastClick from './fastclick.js'
 
+function addEventListeners (el, names, fn) {
+  names.forEach((name) => {
+    el.addEventListener(name, fn)
+  })
+}
+
 Game.getUnsolvedMap([true, false])
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,7 +42,7 @@ export function getTableCellsArray ({ onPause, onPlay }) {
   const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
     const $td = Elem('td', { className: Game.map[x][y] })
 
-    $td.addEventListener('click', () => {
+    addEventListeners($td, ['click', 'touch'], () => {
       if (Controller.isPaused) return
 
       Game.press([x, y])
