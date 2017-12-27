@@ -39,7 +39,7 @@ const messages = {
     "Do you hear that? It's the sound of your sadness after realizing that you spent hours playing this.",
     "Don't stop playing. I need your love.",
     "I bet you don't even read these, do you?",
-    "I could've use this message as free advertising space...",
+    "I could've used this message as free advertising space...",
     "I'm sorry if these messages have hurt your feelings.",
     "How long does it take you to complete a single puzzle? Disappointing.",
     "Listen to all of ABBA's songs. They're really good.",

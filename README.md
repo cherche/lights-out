@@ -12,7 +12,9 @@ A 3x3 clone of the original game using JavaScript.
 - [ ] Add keyboard controls
   - Either certain keys being bound to tiles (QWE-ASD-ZXC) or
   - Single tile is selected at a time, and arrow keys or WASD can be used to move the selector. Perhaps Enter or Space will be used to press it.
-- [ ] Add counter for unlocked messages?
+- [ ] Add some sort of metric to further engage players
+  - Counter for unlocked messages
+  - Add timer?
 - [ ] Add favicons for all platforms
 - [ ] Add social buttons
   - Perhaps on the same screen as the win message?

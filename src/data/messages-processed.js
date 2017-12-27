@@ -133,7 +133,7 @@ const winMessages = [
 },
 {
   type: "phrase",
-  text: "I could\'ve use this message as free advertising space..."
+  text: "I could\'ve used this message as free advertising space..."
 },
 {
   type: "phrase",
