@@ -26,7 +26,7 @@ body,
 body {
   background-color: #282c34;
   color: #ddd;
-  font-family: sans-serif;
+  font-family: 'Courgette', sans-serif;
 }
 
 .flex-container {
@@ -34,6 +34,10 @@ body {
   justify-content: center;
   align-items: center;
   transition: transform 0.5s
+}
+
+table {
+  border-collapse: collapse;
 }
 
 td {
@@ -60,3 +64,6 @@ td.true .circle {
 body.paused .flex-container {
   transform: translateY(-100vh)
 }
+
+@import './win-messages.css';
+@import './mobile.css';

@@ -4,16 +4,22 @@
   "description": "A 3x3 clone of the original game using JavaScript.",
   "main": "js/main.js",
   "devDependencies": {
+    "@babel/core": "^7.0.0-beta.36",
+    "@babel/preset-env": "^7.0.0-beta.36",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-minify": "^0.2.0",
-    "css-loader": "^0.28.7",
-    "extract-text-webpack-plugin": "^3.0.2",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-babel-minify": "^0.2.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat-css": "^2.3.0",
     "style-loader": "^0.19.1",
-    "webpack": "^3.10.0"
+    "webpack": "^3.10.0",
+    "webpack-stream": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
@@ -26,8 +32,6 @@
   },
   "homepage": "https://github.com/cherche/lights-out#readme",
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.35",
-    "@babel/preset-env": "^7.0.0-beta.35",
     "babel-loader": "^8.0.0-beta.0"
   }
 }
