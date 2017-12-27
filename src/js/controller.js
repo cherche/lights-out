@@ -57,6 +57,7 @@ export function getTableCells ({ onPause, onPlay }) {
     // https://www.html5rocks.com/en/mobile/touchandmouse/
     $td.addEventListener('click', triggerPress)
     $td.addEventListener('touchstart', (e) => {
+      e.stopPropagation()
       e.preventDefault()
       triggerPress()
     })
