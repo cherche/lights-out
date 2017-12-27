@@ -27,7 +27,7 @@ export function getTableCells ({ onPause, onPlay }) {
   const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
     const $td = Elem('td', { className: Game.map[x][y] })
 
-    $td.addEventListener('click', () => {
+    const triggerPress = () => {
       if (Controller.isPaused) return
 
       Game.press([x, y])
@@ -50,6 +50,15 @@ export function getTableCells ({ onPause, onPlay }) {
         this.removeEventListener('click', startGame)
         refreshTable(tableCells)
       }), 0)
+    }
+
+    // Listen for both click and touchstart, but cancel the
+    // click event if touchstart is triggered
+    // https://www.html5rocks.com/en/mobile/touchandmouse/
+    $td.addEventListener('click', triggerPress)
+    $td.addEventListener('touchstart', (e) => {
+      e.preventDefault()
+      triggerPress()
     })
 
     const $circle = Elem('div', { className: 'circle' })
