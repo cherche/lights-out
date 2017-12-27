@@ -26,13 +26,14 @@ body,
 body {
   background-color: #282c34;
   color: #ddd;
+  font-family: sans-serif;
 }
 
 .flex-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: 0.5s all;
+  transition: transform 0.5s
 }
 
 td {
@@ -49,7 +50,7 @@ td .circle {
   border: 0.75rem solid #ddd;
   border-radius: 50%;
 
-  transition: 0.1s all;
+  transition: all 0.1s;
 }
 
 td.true .circle {

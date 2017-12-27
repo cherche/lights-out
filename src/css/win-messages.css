@@ -3,8 +3,6 @@
 
   font-family: 'Courgette', sans-serif;
   text-align: center;
-
-  transition: 0.5s transform;
 }
 
 .win-message#symbol {

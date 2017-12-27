@@ -1,5 +1,6 @@
 import Elem from './js/element.js'
-import { getTableCellsArray, getTable } from './js/controller.js'
+import FastClick from './js/fastclick.js'
+import { getTableCells, getTable } from './js/controller.js'
 import { getRandomVal } from './js/probability.js'
 
 import winMessages from './data/messages-processed.js'
@@ -12,13 +13,17 @@ import './css/mobile.css'
 import './fonts/courgette.css'
 */
 
+const $winContainer = Elem('div', { className: 'win-container flex-container' })
+
+const $winMessage = Elem('h1', { className: 'win-message' })
+$winContainer.appendChild($winMessage)
+
 document.addEventListener('DOMContentLoaded', () => {
   const $body = document.body
 
   const $gameContainer = Elem('div', { className: 'game-container flex-container' })
-  $body.appendChild($gameContainer)
 
-  const tableCells = getTableCellsArray({
+  const tableCells = getTableCells({
     onPause: () => {
       $body.classList.add('paused')
 
@@ -35,9 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const $table = getTable(tableCells)
   $gameContainer.appendChild($table)
 
-  const $winContainer = Elem('div', { className: 'win-container flex-container' })
+  $body.appendChild($gameContainer)
   $body.appendChild($winContainer)
 
-  const $winMessage = Elem('h1', { className: 'win-message' })
-  $winContainer.appendChild($winMessage)
+	FastClick.attach($body);
+  // Fully disable touch scroll
+  document.addEventListener('touchmove', e => e.preventDefault())
 })

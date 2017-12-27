@@ -1,16 +1,7 @@
 import Game from './game.js'
 import Elem from './element.js'
-import FastClick from './fastclick.js'
 
 Game.getUnsolvedMap([true, false])
-
-document.addEventListener('DOMContentLoaded', () => {
-  const $body = document.body
-	FastClick.attach($body);
-
-  // Disable touch scroll on iOS Safari
-  document.addEventListener('touchmove', e => e.preventDefault())
-}, false);
 
 const Controller = {
   isPaused: false,
@@ -32,7 +23,7 @@ function refreshTable (tableCells) {
 
 // A 2D array with the same layout as the game
 // map, but all booleans are replaced with elements
-export function getTableCellsArray ({ onPause, onPlay }) {
+export function getTableCells ({ onPause, onPlay }) {
   const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
     const $td = Elem('td', { className: Game.map[x][y] })
 
@@ -72,10 +63,10 @@ export function getTableCellsArray ({ onPause, onPlay }) {
 
 // Haha, because it's a portmanteau of "cell"
 // and "elements". I'm funny.
-export function getTable(celements) {
+export function getTable(tableCells) {
   const $table = Elem('table')
 
-  celements.forEach((row, x) => {
+  tableCells.forEach((row, x) => {
     const $tr = Elem('tr')
     $table.appendChild($tr)
 
