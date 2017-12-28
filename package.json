@@ -12,14 +12,14 @@
     "gulp-babel": "^7.0.0",
     "gulp-babel-minify": "^0.2.0",
     "gulp-clean-css": "^3.9.0",
-    "gulp-concat-css": "^2.3.0",
+    "gulp-concat": "^2.6.1",
     "style-loader": "^0.19.1",
     "webpack": "^3.10.0",
     "webpack-stream": "^4.0.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gulp build"
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -30,8 +30,5 @@
   "bugs": {
     "url": "https://github.com/cherche/lights-out/issues"
   },
-  "homepage": "https://github.com/cherche/lights-out#readme",
-  "dependencies": {
-    "babel-loader": "^8.0.0-beta.0"
-  }
+  "homepage": "https://github.com/cherche/lights-out#readme"
 }

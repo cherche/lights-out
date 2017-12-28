@@ -1,15 +1,14 @@
 const gulp = require('gulp')
 
-const concatCss = require('gulp-concat-css')
+const concat = require('gulp-concat')
 const cleanCSS = require('gulp-clean-css')
-
 const webpack = require('webpack-stream')
 const babel = require('gulp-babel')
 const minify = require('gulp-babel-minify')
 
 gulp.task('css', () => {
-  return gulp.src('src/style.css')
-    .pipe(concatCss('bundle.css'))
+  return gulp.src(['src/css/main.css', 'src/css/win-messages.css', 'src/css/mobile.css'])
+    .pipe(concat('bundle.css'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist/'))
 })
@@ -26,4 +25,4 @@ gulp.task('js', () => {
     .pipe(gulp.dest('dist/'))
 });
 
-gulp.task('build', ['css', 'js'])
+gulp.task('default', ['css', 'js'])
