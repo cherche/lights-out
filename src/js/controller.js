@@ -1,5 +1,6 @@
 import Game from './game.js'
 import Elem from './element.js'
+import PressHandler from './press.js'
 
 Game.getUnsolvedMap([true, false])
 
@@ -27,7 +28,7 @@ export function getTableCells ({ onPause, onPlay }) {
   const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
     const $td = Elem('td', { className: Game.map[x][y] })
 
-    const triggerPress = () => {
+    const tdPressHandler = PressHandler($td, () => {
       if (Controller.isPaused) return
 
       Game.press([x, y])
@@ -36,9 +37,9 @@ export function getTableCells ({ onPause, onPlay }) {
       if (!Game.isWon()) return
 
       Controller.pause(onPause)
-      // I guess this works
-      // Surely, there's a better way to do it, though
-      setTimeout(() => window.addEventListener('click', function startGame (e) {
+
+      const windowPressHandler = PressHandler(window, (e) => {
+        e.stopPropagation()
         e.preventDefault()
 
         Game.getUnsolvedMap()
@@ -47,20 +48,16 @@ export function getTableCells ({ onPause, onPlay }) {
         // Temporarily prevented actions
         // Re-allowed and reset game after clicking anywhere
 
-        this.removeEventListener('click', startGame)
+        windowPressHandler.unbind()
         refreshTable(tableCells)
-      }), 0)
-    }
+      })
 
-    // Listen for both click and touchstart, but cancel the
-    // click event if touchstart is triggered
-    // https://www.html5rocks.com/en/mobile/touchandmouse/
-    $td.addEventListener('click', triggerPress)
-    $td.addEventListener('touchstart', (e) => {
-      e.stopPropagation()
-      e.preventDefault()
-      triggerPress()
+      // I don't even know how to bind this without it
+      // instantly triggering because of the $td click
+      setTimeout(() => windowPressHandler.bind(), 0)
     })
+
+    tdPressHandler.bind()
 
     const $circle = Elem('div', { className: 'circle' })
     $td.appendChild($circle)

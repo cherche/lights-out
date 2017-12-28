@@ -1,5 +1,4 @@
 import Elem from './js/element.js'
-import FastClick from './js/fastclick.js'
 import { getTableCells, getTable } from './js/controller.js'
 import { getRandomVal } from './js/probability.js'
 
@@ -43,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
   $body.appendChild($gameContainer)
   $body.appendChild($winContainer)
 
-	FastClick.attach($body);
   // Fully disable touch scroll
   document.addEventListener('touchmove', e => e.preventDefault())
 })
