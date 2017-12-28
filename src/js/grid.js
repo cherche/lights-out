@@ -4,7 +4,7 @@ export function getAdjacents (width, height, [x1, y1]) {
   // Actually includes self (whoops?)
   const ranges = {
     x: [x1 - 1, x1 + 1],
-    y: [y1 - 1, y1 + 1],
+    y: [y1 - 1, y1 + 1]
   }
 
   // Look within the range, but exclude anything

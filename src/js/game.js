@@ -1,6 +1,6 @@
 import { splitInto2dArray } from './array-helpers.js'
 import { getDirectAdjacents, coordsToVal } from './grid.js'
-import { getRandomInt, getRandomVal } from './probability.js'
+import { getRandomVal } from './probability.js'
 
 const Game = {}
 

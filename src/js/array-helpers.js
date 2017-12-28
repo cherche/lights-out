@@ -2,7 +2,7 @@
 // sub-array has a desired length
 export function splitInto2dArray (arr, len) {
   // Obviously, avoid mutation of argument
-  const copy = arr.slice()
+  const copy = [...arr]
   const output = []
 
   // Pull out the leading chunk of the array
