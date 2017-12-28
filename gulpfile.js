@@ -13,9 +13,15 @@ gulp.task('css', () => {
     .pipe(gulp.dest('dist/'))
 })
 
+const watcher = gulp.watch('src/css/*.css', ['css']);
+watcher.on('change', (event) => {
+  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
+})
+
 gulp.task('js', () => {
   return gulp.src('src/index.js')
     .pipe(webpack({
+      watch: true,
       output: { filename: 'bundle.js' }
     }))
     .pipe(babel({
