@@ -64,6 +64,3 @@ td.true .circle {
 body.paused .flex-container {
   transform: translateY(-100vh)
 }
-
-@import './win-messages.css';
-@import './mobile.css';

@@ -8,7 +8,7 @@ const babel = require('gulp-babel')
 const minify = require('gulp-babel-minify')
 
 gulp.task('css', () => {
-  return gulp.src('src/css/style.css')
+  return gulp.src('src/style.css')
     .pipe(concatCss('bundle.css'))
     .pipe(cleanCSS({compatibility: 'ie8'}))
     .pipe(gulp.dest('dist/'))
