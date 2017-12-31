@@ -1,7 +1,7 @@
 export default function PressHandler (el, handler) {
-  // In the case of a touchstart, we do not wish
-  // to also trigger the click event
   const touchHandler = (e) => {
+    // In the case of a touchstart, we do not wish
+    // to also trigger the click event
     e.stopPropagation()
     e.preventDefault()
     handler(e)

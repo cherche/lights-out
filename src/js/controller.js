@@ -28,33 +28,35 @@ export function getTableCells ({ onPause, onPlay }) {
   const tableCells = Game.map.map((row, x) => row.map((cell, y) => {
     const $td = Elem('td', { className: Game.map[x][y] })
 
-    const tdPressHandler = PressHandler($td, () => {
+    const tdPressHandler = PressHandler($td, (e) => {
       if (Controller.isPaused) return
+
+      // Call stopPropagation() to ensure that it does not
+      // trigger the handler on the body and instantly
+      // skip the win message screen
+      e.stopPropagation()
 
       Game.press([x, y])
       refreshTable(tableCells)
 
+      // Obviously, we don't care if the game isn't won
       if (!Game.isWon()) return
 
+      // Temporarily prevent actions
       Controller.pause(onPause)
 
       const windowPressHandler = PressHandler(window, (e) => {
         e.stopPropagation()
-        e.preventDefault()
 
+        // Reset game after clicking anywhere
         Game.getUnsolvedMap()
         Controller.play(onPlay)
-
-        // Temporarily prevented actions
-        // Re-allowed and reset game after clicking anywhere
 
         windowPressHandler.unbind()
         refreshTable(tableCells)
       })
 
-      // I don't even know how to bind this without it
-      // instantly triggering because of the $td click
-      setTimeout(() => windowPressHandler.bind(), 0)
+      windowPressHandler.bind()
     })
 
     tdPressHandler.bind()

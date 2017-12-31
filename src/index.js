@@ -4,13 +4,7 @@ import { getRandomVal } from './js/probability.js'
 
 import winMessages from './data/messages-processed.js'
 
-/*
-import './css/style.css'
-import './css/win-messages.css'
-import './css/mobile.css'
-
-import './fonts/courgette.css'
-*/
+// Basically, just create and add all of the elements
 
 const $winContainer = Elem('div', { className: 'win-container flex-container' })
 
@@ -39,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const $table = getTable(tableCells)
   $gameContainer.appendChild($table)
 
+  // Order matters
   $body.appendChild($gameContainer)
   $body.appendChild($winContainer)
 
