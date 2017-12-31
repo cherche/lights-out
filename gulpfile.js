@@ -13,7 +13,7 @@ gulp.task('css', () => {
     .pipe(gulp.dest('dist/'))
 })
 
-const watcher = gulp.watch('src/css/*.css', ['css']);
+const watcher = gulp.watch('src/css/*.css', ['css'])
 watcher.on('change', (event) => {
   console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
 })
@@ -29,6 +29,6 @@ gulp.task('js', () => {
     }))
     .pipe(minify())
     .pipe(gulp.dest('dist/'))
-});
+})
 
 gulp.task('default', ['css', 'js'])
