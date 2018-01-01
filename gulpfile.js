@@ -9,7 +9,7 @@ const minify = require('gulp-babel-minify')
 gulp.task('css', () => {
   return gulp.src(['src/css/main.css', 'src/css/win-messages.css', 'src/css/mobile.css'])
     .pipe(concat('bundle.css'))
-    .pipe(cleanCSS({compatibility: 'ie8'}))
+    .pipe(cleanCSS({ compatibility: 'ie8' }))
     .pipe(gulp.dest('dist/'))
 })
 
@@ -25,7 +25,7 @@ gulp.task('js', () => {
       output: { filename: 'bundle.js' }
     }))
     .pipe(babel({
-      presets: ['es2015']
+      presets: ['env']
     }))
     .pipe(minify())
     .pipe(gulp.dest('dist/'))
