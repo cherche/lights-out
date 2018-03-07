@@ -27,5 +27,9 @@
   "bugs": {
     "url": "https://github.com/cherche/lights-out/issues"
   },
-  "homepage": "https://github.com/cherche/lights-out#readme"
+  "homepage": "https://github.com/cherche/lights-out#readme",
+  "dependencies": {
+    "gulp-rename": "^1.2.2",
+    "gulp-run": "^1.7.1"
+  }
 }

@@ -2,7 +2,7 @@ import Elem from './js/element.js'
 import { getTableCells, getTable } from './js/controller.js'
 import { getRandomVal } from './js/probability.js'
 
-import winMessages from './data/messages-processed.js'
+import winMessages from './data/messages.js'
 
 // Basically, just create and add all of the elements
 

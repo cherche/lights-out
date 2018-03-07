@@ -1,10 +1,18 @@
 const gulp = require('gulp')
 
+const run = require('gulp-run')
+const rename = require('gulp-rename')
 const concat = require('gulp-concat')
 const cleanCSS = require('gulp-clean-css')
 const webpack = require('webpack-stream')
 const babel = require('gulp-babel')
 const minify = require('gulp-babel-minify')
+
+gulp.task('messages', () => {
+  return run('node src/data/processor.js').exec()
+    .pipe(rename('messages.js'))
+    .pipe(gulp.dest('src/data'))
+})
 
 gulp.task('css', () => {
   return gulp.src(['src/css/main.css', 'src/css/win-messages.css', 'src/css/mobile.css'])
@@ -18,10 +26,10 @@ watcher.on('change', (event) => {
   console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
 })
 
-gulp.task('js', () => {
+gulp.task('js', ['messages'], () => {
   return gulp.src('src/index.js')
     .pipe(webpack({
-      watch: true,
+      // watch: true,
       output: { filename: 'bundle.js' }
     }))
     .pipe(babel({
