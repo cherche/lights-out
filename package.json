@@ -1,7 +1,7 @@
 {
   "name": "lights-out",
   "version": "1.0.0",
-  "description": "A 3x3 clone of the original game using JavaScript.",
+  "description": "A 3x3 clone of the original game written in JavaScript.",
   "main": "js/main.js",
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.36",
@@ -13,10 +13,13 @@
     "gulp-babel-minify": "^0.2.0",
     "gulp-clean-css": "^3.9.0",
     "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-run": "^1.7.1",
     "webpack-stream": "^4.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp"
   },
   "repository": {
     "type": "git",
@@ -27,9 +30,5 @@
   "bugs": {
     "url": "https://github.com/cherche/lights-out/issues"
   },
-  "homepage": "https://github.com/cherche/lights-out#readme",
-  "dependencies": {
-    "gulp-rename": "^1.2.2",
-    "gulp-run": "^1.7.1"
-  }
+  "homepage": "https://github.com/cherche/lights-out#readme"
 }

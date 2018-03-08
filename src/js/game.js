@@ -44,7 +44,6 @@ Game.press = (coords) => {
   const { width, height } = Game.options
 
   const queue = getDirectAdjacents(width, height, coords)
-
   queue.forEach(coords => Game.toggle(coords))
 
   return queue

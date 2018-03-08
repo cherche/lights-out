@@ -1,7 +1,7 @@
 export function getAdjacents (width, height, [x1, y1]) {
   const adjacents = []
 
-  // Actually includes self (whoops?)
+  // Actually includes self in addition to adjacent tiles (whoops?)
   const ranges = {
     x: [x1 - 1, x1 + 1],
     y: [y1 - 1, y1 + 1]
@@ -30,11 +30,13 @@ export function getDirectAdjacents (width, height, [x, y]) {
     [x, y + 1]
   ]
 
+  // Ensure each coordinate pair is within the map boundaries
   return adjacents.filter(([x, y]) => {
     return y >= 0 && y < height && x >= 0 && x < width
   })
 }
 
+// Given a map and a coordinate pair, returns the value at that point
 export function coordsToVal (map, [x, y]) {
   return map[x][y]
 }

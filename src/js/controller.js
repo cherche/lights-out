@@ -70,8 +70,6 @@ export function getTableCells ({ onPause, onPlay }) {
   return tableCells
 }
 
-// Haha, because it's a portmanteau of "cell"
-// and "elements". I'm funny.
 export function getTable (tableCells) {
   const $table = Elem('table')
 
