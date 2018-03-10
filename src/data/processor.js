@@ -1,4 +1,4 @@
-const fs = require('fs')
+// const fs = require('fs')
 
 const messages = require('./messages.json')
 
@@ -8,16 +8,21 @@ const winMessages = []
 
 for (const type of Object.keys(messages)) {
   const vals = messages[type]
-  vals.forEach(text => winMessages.push({ type, text }))
+  vals.forEach(text =>
+    winMessages.push(`  {
+    type: '${type}',
+    text: '${text.replace(/'/g, '\\\'')}'
+  }`))
 }
 
 const data =
-`const winMessages = ${JSON.stringify(winMessages, null, 2)}
+`const winMessages = [
+${winMessages.join(',\n')}
+]
 
-export default winMessages
-`
+export default winMessages`
 
 console.log(data)
 
 process.exit()
-//fs.writeFile('./src/data/messages.js', data, err => console.log(err))
+// fs.writeFile('./src/data/messages.js', data, err => console.log(err))
