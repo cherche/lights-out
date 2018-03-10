@@ -25,7 +25,7 @@ watcher.on('change', (event) => {
 gulp.task('messages', () => {
   return run('node src/data/processor.js').exec()
     .pipe(rename('messages.js'))
-    .pipe(gulp.dest('src/data'))
+    .pipe(gulp.dest('src/data/'))
 })
 
 gulp.task('js', ['messages'], () => {

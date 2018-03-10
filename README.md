@@ -3,6 +3,11 @@
 A 3x3 clone of the original game written in JavaScript.
 
 ## To-do
+- [ ] Add tutorial
+  - Seriously. When you first open the site, you have no idea what to do.
+- [ ] Add more game modes?
+  - Bigger boards
+    - Because not all boards are solvable, randomization would need to be done by starting with an empty board and programmatically pressing them randomly
 - [ ] Add keyboard controls
   - Either certain keys being bound to tiles (QWE-ASD-ZXC) or
   - Single tile is selected at a time, and arrow keys or WASD can be used to move the selector. Perhaps Enter or Space will be used to press it.
