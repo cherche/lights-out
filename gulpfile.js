@@ -10,8 +10,8 @@ const minify = require('gulp-babel-minify')
 gulp.task('css', () => {
   return gulp.src(['src/css/main.css', 'src/css/win-messages.css', 'src/css/mobile.css'])
     .pipe(concat('bundle.css'))
-    .pipe(cleanCSS({ compatibility: 'ie8' }))
-    .pipe(gulp.dest('dist/'))
+    .pipe(cleanCSS({ compatibility: '*' }))
+    .pipe(gulp.dest('dist'))
 })
 
 /*
@@ -34,15 +34,12 @@ function buildMessages (messages) {
   }`))
   }
 
-  const data =
-`const winMessages = [
+  return `const winMessages = [
 ${winMessages.join(',\n')}
 ]
 
 export default winMessages
 `
-
-  return data
 }
 
 gulp.task('messages', () => {
@@ -52,7 +49,7 @@ gulp.task('messages', () => {
   stream.end(buildMessages(messages))
 
   return stream
-    .pipe(gulp.dest('./src/data/'))
+    .pipe(gulp.dest('./src/data'))
 })
 
 gulp.task('js', ['messages'], () => {
@@ -65,7 +62,7 @@ gulp.task('js', ['messages'], () => {
       presets: ['env']
     }))
     .pipe(minify())
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist'))
 })
 
 gulp.task('default', ['css', 'js'])
