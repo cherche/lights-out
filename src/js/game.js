@@ -18,8 +18,6 @@ Game.getInitMap = () => {
   const { width, height } = Game.options
 
   const map = []
-  const vals = [true, false]
-
   for (let i = 0; i < width * height; i++) map.push(false)
 
   Game.map = splitInto2dArray(map, height)
@@ -39,7 +37,6 @@ Game.randomizeMap = () => {
     }
     // I mean, it's slower, but yay for generality?
     // After all, speed is somewhat negligible for a game like this
-
   } while (Game.isWon())
 }
 

@@ -121,19 +121,11 @@ const winMessages = [
   },
   {
     type: 'phrase',
-    text: 'Do you hear that? It\'s the sound of your sadness after realizing that you spent hours playing this.'
-  },
-  {
-    type: 'phrase',
     text: 'Don\'t stop playing. I need your love.'
   },
   {
     type: 'phrase',
     text: 'I bet you don\'t even read these, do you?'
-  },
-  {
-    type: 'phrase',
-    text: 'I could\'ve used this message as free advertising space...'
   },
   {
     type: 'phrase',
@@ -161,10 +153,6 @@ const winMessages = [
   },
   {
     type: 'phrase',
-    text: 'Somebody once told me the world is gonna roll me.'
-  },
-  {
-    type: 'phrase',
     text: 'The music video for "The Scientist" by Coldplay is pretty good.'
   },
   {
@@ -173,15 +161,11 @@ const winMessages = [
   },
   {
     type: 'phrase',
-    text: 'This game is the reason that I don\'t have a girlfriend.'
-  },
-  {
-    type: 'phrase',
     text: 'This is the most warmth I\'ve ever felt.'
   },
   {
     type: 'phrase',
-    text: 'What is love? Baby don\'t hurt me.'
+    text: '"What is Love?" is better than "TT".'
   },
   {
     type: 'phrase',
@@ -189,7 +173,7 @@ const winMessages = [
   },
   {
     type: 'phrase',
-    text: 'You could be out with friends, but instead, you\'re with me. Nice.'
+    text: 'You could be out with friends, but instead, you\'re here.'
   },
   {
     type: 'phrase',
