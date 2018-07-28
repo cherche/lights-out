@@ -2,8 +2,6 @@ import Game from './game.js'
 import Elem from './element.js'
 import PressHandler from './press.js'
 
-Game.getUnsolvedMap([true, false])
-
 const Controller = {
   isPaused: false,
   pause: (fn) => {
@@ -49,7 +47,7 @@ export function getTableCells ({ onPause, onPlay }) {
         e.stopPropagation()
 
         // Reset game after clicking anywhere
-        Game.getUnsolvedMap()
+        Game.randomizeMap()
         Controller.play(onPlay)
 
         windowPressHandler.unbind()

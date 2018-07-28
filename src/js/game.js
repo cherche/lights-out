@@ -1,6 +1,6 @@
 import { splitInto2dArray } from './array-helpers.js'
 import { getDirectAdjacents, coordsToVal } from './grid.js'
-import { getRandomVal } from './probability.js'
+import { getRandomBool } from './probability.js'
 
 const Game = {}
 
@@ -14,22 +14,32 @@ Game.options = {
   height: 3
 }
 
-Game.getMap = () => {
+Game.getInitMap = () => {
   const { width, height } = Game.options
 
   const map = []
   const vals = [true, false]
 
-  for (let i = 0; i < width * height; i++) {
-    map.push(getRandomVal(vals))
-  }
+  for (let i = 0; i < width * height; i++) map.push(false)
 
   Game.map = splitInto2dArray(map, height)
 }
 
-Game.getUnsolvedMap = () => {
+Game.randomizeMap = () => {
+  const { width, height } = Game.options
+
   do {
-    Game.getMap()
+    // If each tile were set generally, randomizeMap() would
+    // sometimes spit out unsolvable maps
+    // This is technically more general
+    for (let x = 0; x < width; x++) {
+      for (let y = 0; y < height; y++) {
+        if (getRandomBool()) Game.press([x, y])
+      }
+    }
+    // I mean, it's slower, but yay for generality?
+    // After all, speed is somewhat negligible for a game like this
+
   } while (Game.isWon())
 }
 
@@ -64,5 +74,10 @@ Game.isWon = () => {
 
   return true
 }
+
+// map needs to be defined before randomize()
+// can randomize it (duh)
+Game.getInitMap()
+Game.randomizeMap()
 
 export default Game
