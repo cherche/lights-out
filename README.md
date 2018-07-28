@@ -1,10 +1,10 @@
 # Lights Out
 
-A 3x3 clone of the original game written in JavaScript.
+A 3x3 clone of the original game, written in JavaScript.
 
 ## To-do
 - [ ] Add tutorial
-  - Seriously. When you first open the site, you have no idea what to do.
+  - Seriously. When you first open the site you have no idea what to do.
 - [ ] Add more game modes?
   - Bigger boards
     - Because not all boards are solvable, randomization would need to be done by starting with an empty board and programmatically pressing them randomly
