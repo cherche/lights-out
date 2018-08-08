@@ -7,16 +7,17 @@ export default function Array2 ({
     arr2.push(new Array(height).fill(fill))
   }
 
+  // There should be a better way to include the indices . . .
+
   arr2.forEach2 = (callback) => {
     return arr2.forEach((row, i) =>
       row.forEach((currentValue, j) =>
         callback(currentValue, [i, j])))
   }
 
-  /*
-  map2() and forEach2 differ from map in that the index it takes is 2D
-  function callback (currentValue, indices) {}
-  */
+  // map2() and forEach2() differ from their 1D versions as their callback takes in
+  // 2D indices (Array) rather than a Number.
+  // function callback (currentValue, indices) {}
 
   arr2.map2 = (callback) => {
     return arr2.map((row, i) =>
