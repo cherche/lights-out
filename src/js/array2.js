@@ -37,6 +37,15 @@ export default function Array2 ({
   }
   */
 
+  arr2.getIndices = (searchElement) => {
+    for (let i = 0; i < width; i++) {
+      for (let j = 0; j < height; j++) {
+        if (arr2[i][j] === searchElement) return [i, j]
+      }
+    }
+    return -1
+  }
+
   arr2.every2 = (callback) => {
     return arr2.every(row => row.every(callback))
   }
