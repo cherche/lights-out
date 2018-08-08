@@ -1,7 +1,8 @@
+/*
 export function getAdjacents (width, height, [x1, y1]) {
   const adjacents = []
 
-  // Actually includes self in addition to adjacent tiles (whoops?)
+  // This includes diagonals
   const ranges = {
     x: [x1 - 1, x1 + 1],
     y: [y1 - 1, y1 + 1]
@@ -19,6 +20,7 @@ export function getAdjacents (width, height, [x1, y1]) {
 
   return adjacents
 }
+*/
 
 export function getDirectAdjacents (width, height, [x, y]) {
   // I couldn't think of a better way, and was lazy

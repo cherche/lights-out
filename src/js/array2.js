@@ -19,10 +19,16 @@ export default function Array2 ({
   // 2D indices (Array) rather than a Number.
   // function callback (currentValue, indices) {}
 
+  // It it necessary to write map2() like this since the return value should
+  // also contain the Array2 methods.
   arr2.map2 = (callback) => {
-    return arr2.map((row, i) =>
-      row.map((currentValue, j) =>
-        callback(currentValue, [i, j])))
+    const copy = Array2({ fill, size: [width, height] })
+
+    arr2.forEach2((currentValue, [i, j]) => {
+      copy[i][j] = callback(currentValue, [i, j])
+    })
+
+    return copy
   }
 
   /*
