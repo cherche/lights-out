@@ -36,27 +36,27 @@ body {
   transition: transform 0.5s;
 }
 
-table {
+#game {
   border-collapse: collapse;
 }
 
-td {
+#game td {
   padding: 0.5rem;
 }
 
-td,
-td .circle {
+#game td,
+#game td div {
   width: 4rem;
   height: 4rem;
 }
 
-td .circle {
+#game td div {
   border: 0.75rem solid #ddd;
   border-radius: 50%;
   transition: all 0.1s;
 }
 
-td.true .circle {
+#game td.lit div {
   background-color: #ddd;
 }
 

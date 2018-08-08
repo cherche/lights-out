@@ -1,42 +1,100 @@
+import Game from './js/game.js'
+import winMessages from './data/messages.js'
 import Elem from './js/element.js'
-import { getTableCells, getTable } from './js/controller.js'
+import PressHandler from './js/press.js'
 import { getRandomVal } from './js/probability.js'
 
-import winMessages from './data/messages.js'
+// I would much rather use a framework, but it takes some time to learn
 
-// Basically, just create and add all of the elements
+const $body = document.body
 
-const $winContainer = Elem('div', { className: 'win-container flex-container' })
-
-const $winMessage = Elem('h1', { className: 'win-message' })
-$winContainer.appendChild($winMessage)
-
-document.addEventListener('DOMContentLoaded', () => {
-  const $body = document.body
-
-  const $gameContainer = Elem('div', { className: 'game-container flex-container' })
-
-  const tableCells = getTableCells({
-    onPause: () => {
-      $body.classList.add('paused')
-
-      const winMessage = getRandomVal(winMessages)
-
-      $winMessage.textContent = winMessage.text
-      $winMessage.id = winMessage.type
-    },
-    onPlay: () => {
-      $body.classList.remove('paused')
-    }
+// Build everything
+const $tbody = Elem('tbody')
+const cells = Game.map.map2((currentValue, [i, j]) => {
+  const $td = Elem('td', {
+    children: [
+      Elem('div', {
+        attr: { className: 'circle' }
+      })
+    ]
   })
 
-  const $table = getTable(tableCells)
-  $gameContainer.appendChild($table)
-
-  // Order matters
-  $body.appendChild($gameContainer)
-  $body.appendChild($winContainer)
-
-  // Fully disable touch scroll
-  document.addEventListener('touchmove', e => e.preventDefault())
+  return $td
 })
+cells.forEach((row, i) => {
+  const $tr = Elem('tr', {
+    children: row
+  })
+
+  $tbody.appendChild($tr)
+})
+
+const $main = Elem('div', {
+  attr: { className: 'main flex-container' },
+  children: [
+    Elem('table', {
+      attr: { id: 'game' },
+      children: [$tbody]
+    })
+  ]
+})
+
+const $winMessage = Elem('h1', {
+  attr: { className: 'win-message' }
+})
+const $win = Elem('div', {
+  attr: { className: 'win flex-container' },
+  children: [$winMessage]
+})
+
+// Order matters
+$body.appendChild($main)
+$body.appendChild($win)
+
+// All user inputs
+
+// Really, I should create generic functions that connect to the Game
+// object and bind those to each element, but this will do for now.
+
+const updateCells = function updateCells () {
+  cells.forEach2((cell, [i, j]) => {
+    cell.className = Game.map[i][j] ? 'lit' : ''
+  })
+}
+
+const handlers = {
+  $body: PressHandler($body, (e) => {
+    $body.className = ''
+    Game.randomizeMap()
+    updateCells()
+    handlers.$body.active = false
+    handlers.$tbody.active = true
+  }),
+
+  // Event delegation is awesome
+  $tbody: PressHandler($tbody, (e) => {
+    const target = (e.target.tagName === 'TD')
+      ? e.target
+      : e.target.parentNode
+    const indices = cells.getIndices(target)
+
+    Game.press(indices)
+    updateCells()
+
+    if (Game.isWon()) {
+      $body.className = 'paused'
+      handlers.$tbody.active = false
+      handlers.$body.active = true
+
+      const message = getRandomVal(winMessages)
+      $winMessage.className = message.type
+      $winMessage.textContent = message.text
+
+      // If we don't call stopPropagation(), the $body event listener is
+      // triggered instantly and the win message is skipped.
+      e.stopPropagation()
+    }
+  })
+}
+handlers.$body.active = false
+updateCells()

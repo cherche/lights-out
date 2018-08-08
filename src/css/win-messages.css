@@ -1,16 +1,16 @@
-.win-message {
-  max-width: 80%;
+.win h1 {
+  max-width: 90%;
   text-align: center;
 }
 
-.win-message#symbol {
+.win .symbol {
   font-size: 8rem;
 }
 
-.win-message#word {
+.win .word {
   font-size: 5rem;
 }
 
-.win-message#phrase {
+.win .phrase {
   font-size: 3rem;
 }

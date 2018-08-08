@@ -6,15 +6,15 @@ These awesome media queries are from https://stackoverflow.com/a/40542824.
 @media only screen
 and (min-width: 320px)
 and (max-width: 480px) {
-  .win-message#symbol {
+  .win .symbol {
     font-size: 6.5rem;
   }
 
-  .win-message#word {
+  .win .word {
     font-size: 3.5rem;
   }
 
-  .win-message#phrase {
+  .win .phrase {
     font-size: 2rem;
   }
 
@@ -40,17 +40,17 @@ and (max-width: 767px) {
     background-color: green;
   }/**/
 
-  td {
+  #game td {
     padding: 0.375rem;
   }
 
-  td,
-  td .circle {
+  #game td,
+  #game td div {
     width: 3rem;
     height: 3rem;
   }
 
-  td .circle {
+  #game td div {
     border-width: 0.5625rem;
   }
 }
@@ -63,21 +63,21 @@ and (max-width: 1030px) {
     background-color: red;
   }/**/
 
-  td {
+  #game td {
     padding: 0.75rem;
   }
 
-  td,
-  td .circle {
+  #game td,
+  #game td div {
     width: 6rem;
     height: 6rem;
   }
 
-  .win-message {
-    margin: 6rem;
+  .win h1 {
+    margin: 0 auto;
   }
 
-  td .circle {
+  #game td div {
     border-width: 1.125rem;
   }
 }
@@ -104,29 +104,29 @@ and (orientation: landscape) {
     background-color: blue;
   }/**/
 
-  td {
+  #game td {
     padding: 1rem;
   }
 
-  td,
-  td .circle {
+  #game td,
+  #game td div {
     width: 8rem;
     height: 8rem;
   }
 
-  td .circle {
+  #game td div {
     border-width: 1.5rem;
   }
 
-  .win-message#symbol {
+  .win .symbol {
     font-size: 11rem;
   }
 
-  .win-message#word {
+  .win .word {
     font-size: 8rem;
   }
 
-  .win-message#phrase {
+  .win .phrase {
     font-size: 5rem;
   }
 }

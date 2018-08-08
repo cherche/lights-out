@@ -21,6 +21,8 @@ watcher.on('change', (event) => {
 })
 */
 
+// This is super clunky but only because there
+// isn't a nicer way to format strings.
 function buildMessages (messages) {
   const winMessages = []
 
@@ -42,7 +44,7 @@ export default winMessages
 `
 }
 
-gulp.task('messages', () => {
+gulp.task('data', () => {
   const messages = require('./src/data/messages.json')
 
   const stream = source('messages.js')
@@ -52,7 +54,7 @@ gulp.task('messages', () => {
     .pipe(gulp.dest('./src/data'))
 })
 
-gulp.task('js', ['messages'], () => {
+gulp.task('js', ['data'], () => {
   return gulp.src('src/index.js')
     .pipe(webpack({
       // watch: true,

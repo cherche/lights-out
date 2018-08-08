@@ -1,21 +1,23 @@
 export default function PressHandler (el, handler) {
-  const touchHandler = (e) => {
-    // In the case of a touchstart, we do not wish
-    // to also trigger the click event
-    e.stopPropagation()
-    e.preventDefault()
+  const pressHandler = {
+    el,
+    active: true
+  }
+
+  const conditionedHandler = (e) => {
+    if (!pressHandler.active) return
     handler(e)
   }
 
-  return {
-    el,
-    bind: () => {
-      el.addEventListener('click', handler)
-      el.addEventListener('touchstart', touchHandler)
-    },
-    unbind: () => {
-      el.removeEventListener('click', handler)
-      el.removeEventListener('touchstart', touchHandler)
-    }
+  const touchHandler = (e) => {
+    // In the case of a touchstart, we do not wish
+    // to also trigger the click event
+    e.preventDefault()
+    conditionedHandler(e)
   }
+
+  el.addEventListener('click', conditionedHandler)
+  el.addEventListener('touchstart', touchHandler)
+
+  return pressHandler
 }

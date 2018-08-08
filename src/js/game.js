@@ -22,8 +22,6 @@ Game.getInitMap = () => {
 }
 
 Game.randomizeMap = () => {
-  const { width, height } = Game.options
-
   do {
     // If each tile were set generally, randomizeMap() would
     // sometimes spit out unsolvable maps
