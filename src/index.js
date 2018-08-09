@@ -57,6 +57,9 @@ $body.appendChild($win)
 
 // All user inputs
 
+// Disable touch scroll
+window.addEventListener('touchmove', e => e.preventDefault())
+
 // Really, I should create generic functions that connect to the game
 // object and bind those to each element, but this will do for now.
 
