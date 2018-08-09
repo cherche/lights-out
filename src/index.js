@@ -4,13 +4,17 @@ import Elem from './js/element.js'
 import PressHandler from './js/press.js'
 import { getRandomVal } from './js/probability.js'
 
-// I would much rather use a framework, but it takes some time to learn
+const game = Game({
+  width: 3,
+  height: 3
+})
 
+// I would much rather use a framework, but it takes some time to learn
 const $body = document.body
 
 // Build everything
 const $tbody = Elem('tbody')
-const cells = Game.map.map2((currentValue, [i, j]) => {
+const cells = game.map.map2((currentValue, [i, j]) => {
   const $td = Elem('td', {
     children: [
       Elem('div', {
@@ -53,19 +57,19 @@ $body.appendChild($win)
 
 // All user inputs
 
-// Really, I should create generic functions that connect to the Game
+// Really, I should create generic functions that connect to the game
 // object and bind those to each element, but this will do for now.
 
 const updateCells = function updateCells () {
   cells.forEach2((cell, [i, j]) => {
-    cell.className = Game.map[i][j] ? 'lit' : ''
+    cell.className = game.map[i][j] ? 'lit' : ''
   })
 }
 
 const handlers = {
   $body: PressHandler($body, (e) => {
     $body.className = ''
-    Game.randomizeMap()
+    game.randomizeMap()
     updateCells()
     handlers.$body.active = false
     handlers.$tbody.active = true
@@ -78,10 +82,10 @@ const handlers = {
       : e.target.parentNode
     const indices = cells.getIndices(target)
 
-    Game.press(indices)
+    game.press(indices)
     updateCells()
 
-    if (Game.isWon()) {
+    if (game.isWon()) {
       $body.className = 'paused'
       handlers.$tbody.active = false
       handlers.$body.active = true
