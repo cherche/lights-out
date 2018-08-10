@@ -12,7 +12,7 @@ const game = Game({
 // I would much rather use a framework, but it takes some time to learn
 const $body = document.body
 
-// Build everything
+// Build the skeleton of the app (nothing interactive)
 const $tbody = Elem('tbody')
 const cells = game.map.map2((currentValue, [i, j]) => {
   const $td = Elem('td', {
@@ -69,6 +69,8 @@ const updateCells = function updateCells () {
   })
 }
 
+let moves = 0
+
 const handlers = {
   $body: PressHandler($body, (e) => {
     $body.className = ''
@@ -80,11 +82,16 @@ const handlers = {
 
   // Event delegation is awesome
   $tbody: PressHandler($tbody, (e) => {
+    // This should never happen, but if something goes
+    // awry with the CSS, there will be no errors
+    if (!['TD', 'DIV'].includes(e.target.tagName)) return
+
     const target = (e.target.tagName === 'TD')
       ? e.target
       : e.target.parentNode
     const indices = cells.getIndices(target)
 
+    moves++
     game.press(indices)
     updateCells()
 
@@ -92,6 +99,9 @@ const handlers = {
       $body.className = 'paused'
       handlers.$tbody.active = false
       handlers.$body.active = true
+
+      if (moves === game.mapInfo.minMoves) console.log('well done!')
+      moves = 0
 
       const message = getRandomVal(winMessages)
       $winMessage.className = message.type

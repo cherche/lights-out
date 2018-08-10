@@ -39,6 +39,8 @@ export function getDirectAdjacents (width, height, [x, y]) {
 }
 
 // Given a map and a coordinate pair, returns the value at that point
+/*
 export function coordsToVal (map, [x, y]) {
   return map[x][y]
 }
+*/
