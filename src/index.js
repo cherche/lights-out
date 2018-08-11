@@ -30,4 +30,4 @@ $body.appendChild($win)
 // Disable touch scroll
 document.addEventListener('touchmove', e => e.preventDefault())
 
-Controller({ $body, $tbody, $winMessage })
+window.c = Controller({ $body, $tbody, $winMessage })

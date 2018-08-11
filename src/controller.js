@@ -14,7 +14,8 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     },
     settings: {
       width: 3,
-      height: 3
+      height: 3,
+      showWin: true
     }
   }
 
@@ -63,7 +64,7 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
 
     if (!c.game.isWon()) return
 
-    $body.className = 'paused'
+    if (c.settings.showWin) $body.className = 'paused'
     handlers.main.$tbody.active = false
     handlers.win.$body.active = true
 
