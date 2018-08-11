@@ -18,23 +18,30 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     }
   }
 
-  c.game = Game(c.settings)
+  const updateCells = function updateCells () {
+    c.cells.forEach2((cell, [i, j]) => {
+      cell.className = c.game.map[i][j] ? 'lit' : ''
+    })
+  }
 
-  c.getCells = () => c.game.map.map2((currentValue, [i, j]) => {
-    const $td = Elem('td', {
-      children: [
-        Elem('div', {
-          attr: { className: 'circle' }
-        })
-      ]
+  // I guess we can have bigger maps now, but it's so much work
+  // to add a screen to actually set the settings . . .
+  c.loadSettings = () => {
+    c.game = Game(c.settings)
+
+    c.cells = c.game.map.map2((currentValue, [i, j]) => {
+      const $td = Elem('td', {
+        children: [
+          Elem('div', {
+            attr: { className: 'circle' }
+          })
+        ]
+      })
+
+      return $td
     })
 
-    return $td
-  })
-
-  c.appendCells = () => {
     Elem.empty($tbody)
-
     c.cells.forEach((row, i) => {
       const $tr = Elem('tr', {
         children: row
@@ -42,16 +49,13 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
 
       $tbody.appendChild($tr)
     })
+
+    updateCells()
   }
 
-  c.cells = c.getCells()
-
-  const updateCells = function updateCells () {
-    c.cells.forEach2((cell, [i, j]) => {
-      cell.className = c.game.map[i][j] ? 'lit' : ''
-    })
-  }
-
+  // I need to separate the part of each handler that is specific
+  // to that event and the part that is the general user action
+  // That way, it becomes easy to add more ways to interact with the game
   c.press = (indices) => {
     c.session.moves++
     c.game.press(indices)
@@ -101,9 +105,8 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     })
   }
   handlers.win.$body.active = false
-  updateCells()
 
-  c.appendCells()
+  c.loadSettings()
 
   return c
 }
