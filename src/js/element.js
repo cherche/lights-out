@@ -14,3 +14,9 @@ export default function Elem (name, opts = {}) {
 
   return el
 }
+
+Elem.empty = (node) => {
+  while (node.firstChild) {
+    node.removeChild(node.firstChild)
+  }
+}

@@ -16,8 +16,17 @@ export default function PressHandler (el, handler) {
     conditionedHandler(e)
   }
 
-  el.addEventListener('click', conditionedHandler)
-  el.addEventListener('touchstart', touchHandler)
+  pressHandler.bind = () => {
+    el.addEventListener('click', conditionedHandler)
+    el.addEventListener('touchstart', touchHandler)
+  }
+
+  pressHandler.unbind = () => {
+    el.removeEventListener('click', conditionedHandler)
+    el.removeEventListener('touchstart', touchHandler)
+  }
+
+  pressHandler.bind()
 
   return pressHandler
 }

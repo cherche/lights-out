@@ -12,7 +12,7 @@ A 3x3 clone of the original game, written in JavaScript.
   - Smallest number of moves
     - I would have to actually find a way to figure this out. It may be possible to attach the number upon generation of the map since map generation is now done "manually" (tiles are randomly pressed).
   - Timed
-    - Actually quite meaningless since you may get lucky
+    - Actually quite meaningless since you may get lucky with the starting position
 - [ ] Add keyboard controls
   - Either certain keys being bound to tiles (QWE-ASD-ZXC) or
   - Single tile is selected at a time, and arrow keys or WASD can be used to move the selector. Perhaps Enter or Space will be used to press it.

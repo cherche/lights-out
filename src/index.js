@@ -1,38 +1,10 @@
-import Game from './js/game.js'
-import winMessages from './data/messages.js'
 import Elem from './js/element.js'
-import PressHandler from './js/press.js'
-import { getRandomVal } from './js/probability.js'
+import Controller from './controller.js'
 
-const game = Game({
-  width: 3,
-  height: 3
-})
-
-// I would much rather use a framework, but it takes some time to learn
 const $body = document.body
 
 // Build the skeleton of the app (nothing interactive)
 const $tbody = Elem('tbody')
-const cells = game.map.map2((currentValue, [i, j]) => {
-  const $td = Elem('td', {
-    children: [
-      Elem('div', {
-        attr: { className: 'circle' }
-      })
-    ]
-  })
-
-  return $td
-})
-cells.forEach((row, i) => {
-  const $tr = Elem('tr', {
-    children: row
-  })
-
-  $tbody.appendChild($tr)
-})
-
 const $main = Elem('div', {
   attr: { className: 'main flex-container' },
   children: [
@@ -55,63 +27,7 @@ const $win = Elem('div', {
 $body.appendChild($main)
 $body.appendChild($win)
 
-// All user inputs
-
 // Disable touch scroll
 document.addEventListener('touchmove', e => e.preventDefault())
 
-// Really, I should create generic functions that connect to the game
-// object and bind those to each element, but this will do for now.
-
-const updateCells = function updateCells () {
-  cells.forEach2((cell, [i, j]) => {
-    cell.className = game.map[i][j] ? 'lit' : ''
-  })
-}
-
-let moves = 0
-
-const handlers = {
-  $body: PressHandler($body, (e) => {
-    $body.className = ''
-    game.randomizeMap()
-    updateCells()
-    handlers.$body.active = false
-    handlers.$tbody.active = true
-  }),
-
-  // Event delegation is awesome
-  $tbody: PressHandler($tbody, (e) => {
-    // This should never happen, but if something goes
-    // awry with the CSS, there will be no errors
-    if (!['TD', 'DIV'].includes(e.target.tagName)) return
-
-    const target = (e.target.tagName === 'TD')
-      ? e.target
-      : e.target.parentNode
-    const indices = cells.getIndices(target)
-
-    moves++
-    game.press(indices)
-    updateCells()
-
-    if (game.isWon()) {
-      $body.className = 'paused'
-      handlers.$tbody.active = false
-      handlers.$body.active = true
-
-      if (moves === game.mapInfo.minMoves) console.log('well done!')
-      moves = 0
-
-      const message = getRandomVal(winMessages)
-      $winMessage.className = message.type
-      $winMessage.textContent = message.text
-
-      // If we don't call stopPropagation(), the $body event listener is
-      // triggered instantly and the win message is skipped.
-      e.stopPropagation()
-    }
-  })
-}
-handlers.$body.active = false
-updateCells()
+window.c = Controller({ $body, $tbody, $winMessage })
