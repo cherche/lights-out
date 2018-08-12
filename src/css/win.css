@@ -5,6 +5,8 @@
   text-align: center;
 }
 
+/* All font sizes are multiples of 3 because there's something wrong with me */
+
 .win .emoticon {
   font-size: 30vmin;
 }
@@ -15,4 +17,8 @@
 
 .win .phrase {
   font-size: 9vmin;
+}
+
+.win .perfect {
+  font-size: 12vmin;
 }

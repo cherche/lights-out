@@ -10,7 +10,8 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     player: {},
     // Should contain short-term things like move count
     session: {
-      moves: 0
+      moves: 0,
+      perfect: 0
     },
     settings: {
       width: 3,
@@ -20,6 +21,8 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
   }
 
   const updateCells = function updateCells () {
+    // Based on the internal game.map, the table is updated
+    // to reflect the current state of the game
     c.cells.forEach2((cell, [i, j]) => {
       cell.className = c.game.map[i][j] ? 'lit' : ''
     })
@@ -68,12 +71,23 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     handlers.main.$tbody.active = false
     handlers.win.$body.active = true
 
-    if (c.session.moves === c.game.mapInfo.minMoves) console.log('well done!')
-    c.session.moves = 0
+    let message
 
-    const message = getRandomVal(winMessages)
+    if (c.session.moves === c.game.mapInfo.minMoves) {
+      c.session.perfect++
+      message = {
+        type: 'perfect',
+        text: `Perfect! (${c.session.perfect})`
+      }
+    } else {
+      c.session.perfect = 0
+      message = getRandomVal(winMessages)
+    }
+
     $winMessage.className = message.type
     $winMessage.textContent = message.text
+
+    c.session.moves = 0
   }
 
   const handlers = {}
