@@ -27,5 +27,3 @@ A 3x3 clone of the original game, written in JavaScript.
 - [ ] Add social buttons
   - Probably on the same screen as the win message
   - Maybe just floating out there all the time
-- [ ] Change CSS for landscape iPhone X to actually fit screen
-  - Why did you make the iPhone X such a skinny rectangle, Apple?!

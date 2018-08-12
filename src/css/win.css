@@ -1,0 +1,18 @@
+.win h1 {
+  /* This fixes most typography awkwardness */
+  max-width: 100vmin;
+  margin: 0 5vw;
+  text-align: center;
+}
+
+.win .symbol {
+  font-size: 21vmin;
+}
+
+.win .word {
+  font-size: 15vmin;
+}
+
+.win .phrase {
+  font-size: 9vmin;
+}

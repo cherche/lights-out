@@ -40,20 +40,25 @@ body {
   border-collapse: collapse;
 }
 
+/*
+These viewport units could come back to haunt
+me when I want to add more board sizes . . .
+*/
+
 #game td {
-  padding: 0.5rem;
+  padding: 2vmin;
 }
 
 #game td,
 #game td div {
-  width: 4rem;
-  height: 4rem;
+  width: 16vmin;
+  height: 16vmin;
 }
 
 #game td div {
-  border: 0.75rem solid #ddd;
+  border: 3vmin solid #ddd;
   border-radius: 50%;
-  transition: all 0.1s;
+  transition: background-color 0.1s;
 }
 
 #game td.lit div {
