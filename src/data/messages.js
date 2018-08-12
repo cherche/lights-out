@@ -1,7 +1,11 @@
 const winMessages = [
   {
-    type: 'symbol',
+    type: 'emoticon',
     text: '<3'
+  },
+  {
+    type: 'emoticon',
+    text: ';)'
   },
   {
     type: 'word',
