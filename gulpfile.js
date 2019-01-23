@@ -54,7 +54,7 @@ gulp.task('data', () => {
     .pipe(gulp.dest('./src/data'))
 })
 
-gulp.task('js', ['data'], () => {
+gulp.task('js', gulp.parallel('data', () => {
   return gulp.src('src/index.js')
     .pipe(webpack({
       // watch: true,
@@ -65,6 +65,6 @@ gulp.task('js', ['data'], () => {
     }))
     .pipe(minify())
     .pipe(gulp.dest('dist'))
-})
+}))
 
-gulp.task('default', ['css', 'js'])
+gulp.task('default', gulp.series('css', 'js'))
