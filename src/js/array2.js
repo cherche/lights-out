@@ -7,6 +7,12 @@ export default function Array2 ({
     arr2.push(new Array(height).fill(fill))
   }
 
+  arr2.get = ([x, y]) => arr2[x][y]
+
+  arr2.set = ([x, y], val) => {
+    arr2[x][y] = val
+  }
+
   // There should be a better way to include the indices . . .
 
   arr2.forEach2 = (callback) => {
@@ -37,7 +43,7 @@ export default function Array2 ({
   }
   */
 
-  arr2.getIndices = (searchElement) => {
+  arr2.indicesOf = (searchElement) => {
     for (let i = 0; i < width; i++) {
       for (let j = 0; j < height; j++) {
         if (arr2[i][j] === searchElement) return [i, j]

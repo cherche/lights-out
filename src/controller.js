@@ -101,7 +101,7 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
       const target = (e.target.tagName === 'TD')
         ? e.target
         : e.target.parentNode
-      const indices = c.cells.getIndices(target)
+      const indices = c.cells.indicesOf(target)
 
       // If we don't call stopPropagation(), the $body event listener is
       // triggered instantly and the win message is skipped.
