@@ -3,6 +3,7 @@ import Elem from './js/element.js'
 import PressHandler from './js/press.js'
 import winMessages from './data/messages.js'
 import { getRandomVal } from './js/probability.js'
+import Array2 from './js/array2.js'
 
 export default function Controller ({ $body, $tbody, $winMessage }) {
   const c = {
@@ -120,6 +121,37 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     })
   }
   handlers.win.$body.active = false
+
+  // This next bit will only work for the default map size (3 by 3)
+  const keyMap = Array2({ size: [3, 3] })
+  {
+    const keyArr = [
+      ['q', 'w', 'e'],
+      ['a', 's', 'd'],
+      ['z', 'x', 'c']
+    ]
+    // I think I made things confusing for myself at some point
+    // Oh well, this is just a rough thing
+    keyArr.forEach((row, x) => {
+      row.forEach((val, y) => {
+        keyMap.set([x, y], val)
+      })
+    })
+  }
+
+  window.addEventListener('keydown', (e) => {
+    if (!handlers.main.$tbody.active) {
+      $body.className = ''
+      c.game.randomizeMap()
+      updateCells()
+      handlers.win.$body.active = false
+      handlers.main.$tbody.active = true
+      return
+    }
+
+    const indices = keyMap.indicesOf(e.key)
+    if (indices !== -1) c.press(indices)
+  })
 
   c.loadSettings()
 
