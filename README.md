@@ -9,7 +9,7 @@ A 3x3 clone of the original game, written in JavaScript.
   - ~~Either certain keys being bound to tiles (QWE-ASD-ZXC) or~~
   - ~~Single tile is selected at a time, and arrow keys or WASD can be used to move the selector. Perhaps Enter or Space will be used to press it.~~
   - (*Update: Bound just to QWE-ASD-AXC*)
-- [ ] Create interface to allow interaction with game
+- [x] Create interface to allow interaction with game
   - This means that with custom scripts, users should be able to define their own inputs for the game, which works for a lazy person like me (but in reality, this would be very useful and add flexibility)
 - [ ] Add tutorial
   - Seriously. When you first open the site you have no idea what to do.
