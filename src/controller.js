@@ -3,7 +3,6 @@ import Elem from './js/element.js'
 import PressHandler from './js/press.js'
 import winMessages from './data/messages.js'
 import { getRandomVal } from './js/probability.js'
-import Array2 from './js/array2.js'
 
 export default function Controller ({ $body, $tbody, $winMessage }) {
   const c = {
@@ -18,7 +17,8 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
       width: 3,
       height: 3,
       showWin: true
-    }
+    },
+    screen: 0
   }
 
   const updateCells = function updateCells () {
@@ -58,6 +58,24 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     updateCells()
   }
 
+  function showScreen (id) {
+    if (id !== 0 && id !== 1) return
+
+    if (id === 0) {
+      $body.className = ''
+      handlers.win.$body.active = false
+      handlers.main.$tbody.active = true
+    } else {
+      if (c.settings.showWin) $body.className = 'paused'
+      handlers.main.$tbody.active = false
+      handlers.win.$body.active = true
+    }
+
+    c.screen = id
+  }
+
+  const handlers = {}
+
   // I need to separate the part of each handler that is specific
   // to that event and the part that is the general user action
   // That way, it becomes easy to add more ways to interact with the game
@@ -68,9 +86,7 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
 
     if (!c.game.isWon()) return
 
-    if (c.settings.showWin) $body.className = 'paused'
-    handlers.main.$tbody.active = false
-    handlers.win.$body.active = true
+    showScreen(1)
 
     let message
 
@@ -91,7 +107,12 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
     c.session.moves = 0
   }
 
-  const handlers = {}
+  c.showMap = () => {
+    c.game.randomizeMap()
+    updateCells()
+    showScreen(0)
+  }
+
   handlers.main = {
     // Event delegation is awesome
     $tbody: PressHandler($tbody, (e) => {
@@ -111,47 +132,11 @@ export default function Controller ({ $body, $tbody, $winMessage }) {
       c.press(indices)
     })
   }
+
   handlers.win = {
-    $body: PressHandler($body, (e) => {
-      $body.className = ''
-      c.game.randomizeMap()
-      updateCells()
-      handlers.win.$body.active = false
-      handlers.main.$tbody.active = true
-    })
+    $body: PressHandler($body, c.showMap)
   }
   handlers.win.$body.active = false
-
-  // This next bit will only work for the default map size (3 by 3)
-  const keyMap = Array2({ size: [3, 3] })
-  {
-    const keyArr = [
-      ['q', 'w', 'e'],
-      ['a', 's', 'd'],
-      ['z', 'x', 'c']
-    ]
-    // I think I made things confusing for myself at some point
-    // Oh well, this is just a rough thing
-    keyArr.forEach((row, x) => {
-      row.forEach((val, y) => {
-        keyMap.set([x, y], val)
-      })
-    })
-  }
-
-  window.addEventListener('keydown', (e) => {
-    if (!handlers.main.$tbody.active) {
-      $body.className = ''
-      c.game.randomizeMap()
-      updateCells()
-      handlers.win.$body.active = false
-      handlers.main.$tbody.active = true
-      return
-    }
-
-    const indices = keyMap.indicesOf(e.key)
-    if (indices !== -1) c.press(indices)
-  })
 
   c.loadSettings()
 

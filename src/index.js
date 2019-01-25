@@ -1,5 +1,6 @@
 import Elem from './js/element.js'
 import Controller from './controller.js'
+import KeyFriend from './key-friend.js'
 
 const $body = document.body
 
@@ -30,4 +31,10 @@ $body.appendChild($win)
 // Disable touch scroll
 document.addEventListener('touchmove', e => e.preventDefault())
 
-window.c = Controller({ $body, $tbody, $winMessage })
+const controller = Controller({ $body, $tbody, $winMessage })
+// Technically, we could save our KeyFriend "instance" in a variable,
+// but it's not like we actually care about enabling and disabling it
+KeyFriend(controller)
+
+// That's right. We're going to leak the controller to global scope
+window.c = controller
