@@ -26,14 +26,14 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.35"
-     inkscape:cx="-179.28571"
-     inkscape:cy="520"
+     inkscape:cx="523.57143"
+     inkscape:cy="405.71429"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="px"
      inkscape:window-width="1440"
-     inkscape:window-height="779"
+     inkscape:window-height="778"
      inkscape:window-x="0"
      inkscape:window-y="1"
      inkscape:window-maximized="1" />
@@ -45,20 +45,48 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
-     inkscape:label="Calque 1"
      inkscape:groupmode="layer"
-     id="layer1"
-     transform="translate(0,-540.36216)">
+     id="layer2"
+     inkscape:label="Ref"
+     sodipodi:insensitive="true"
+     style="display:none">
     <circle
        style="opacity:1;fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:80.84210205;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
        id="path4331"
-       cx="256"
-       cy="796.36218"
+       cx="896.86816"
+       cy="256"
        r="215.57895" />
+    <g
+       transform="translate(7.6498,-540.36218)"
+       id="g4328">
+      <circle
+         style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="circle4318"
+         cx="-392.51794"
+         cy="796.36218"
+         r="256" />
+      <circle
+         r="176"
+         cy="796.36218"
+         cx="-392.51794"
+         id="circle4320"
+         style="opacity:1;fill:#000000;fill-opacity:1;stroke:none;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
+  </g>
+  <g
+     inkscape:label="Main"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-540.36216)">
+    <path
+       style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:6;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 256 0 A 256 256 0 0 0 0 256 A 256 256 0 0 0 256 512 A 256 256 0 0 0 512 256 A 256 256 0 0 0 256 0 z M 256 80 A 176 176 0 0 1 432 256 A 176 176 0 0 1 256 432 A 176 176 0 0 1 80 256 A 176 176 0 0 1 256 80 z "
+       transform="translate(0,540.36216)"
+       id="path4310" />
   </g>
 </svg>
