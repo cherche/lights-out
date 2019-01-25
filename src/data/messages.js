@@ -5,7 +5,7 @@ const winMessages = [
   },
   {
     type: 'emoticon',
-    text: ';)'
+    text: ':)'
   },
   {
     type: 'word',
@@ -157,6 +157,10 @@ const winMessages = [
   },
   {
     type: 'phrase',
+    text: 'The guy who made this game sucks.'
+  },
+  {
+    type: 'phrase',
     text: 'The music video for "The Scientist" by Coldplay is pretty good.'
   },
   {
@@ -169,7 +173,15 @@ const winMessages = [
   },
   {
     type: 'phrase',
+    text: 'This is the sign you\'ve been waiting for. Do it!'
+  },
+  {
+    type: 'phrase',
     text: '"What is Love?" is better than "TT".'
+  },
+  {
+    type: 'phrase',
+    text: 'Why don\'t you make like a tree, and get out of here?'
   },
   {
     type: 'phrase',
@@ -178,6 +190,10 @@ const winMessages = [
   {
     type: 'phrase',
     text: 'You could be out with friends, but instead, you\'re here.'
+  },
+  {
+    type: 'phrase',
+    text: 'You have failed this city.'
   },
   {
     type: 'phrase',
